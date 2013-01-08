@@ -1,0 +1,90 @@
+.openerp a.oe_doc_doc_show {
+    font-family: "entypoRegular";
+    font-size: 34px;
+    margin-top: 0px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    color: white;
+    border: none;
+    box-shadow: none;
+    text-shadow: black 0px 0px 3px;
+    cursor: pointer;
+}
+
+.openerp  a.oe_button_doc{
+	display: block; 
+	padding: 7px 5px 5px 5px; 
+	margin: 2px;
+	/* old browsers */
+	background: #c52020; 
+	/* firefox */
+	background: -moz-linear-gradient(top, #c52020 0%, #9A2525 100%); 
+    /* webkit */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c52020), color-stop(100%,#9A2525)); 
+	box-shadow: inset 0px 0px 6px #fff;
+	-webkit-box-shadow: inset 0px 0px 6px #fff;
+	border: 1px solid #E4B8B8;
+	border-radius: 4px;
+    /* font */
+	font: bold 20px/10px Helvetica, Sans-Serif; 
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-shadow: 0px 1px 2px #9A2525;
+}
+
+.openerp span.oe_ic{
+	font: bold 40px/20px "entypoRegular"; 
+}
+
+.openerp .oe_doc_float_help {
+    position: absolute;
+    z-index: 1000;
+}
+
+.openerp .oe_doc_float_help.oe_dropdown_menu {
+    width: 40%;
+    left: 58%;
+}
+
+.openerp a.oe_doc_doc_hide {
+    font-family: "entypoRegular";
+    color: white;
+    display: block;
+    left: 90%;
+    width: 30px;
+    height: 30px;
+    font-size: 34px;
+    margin: 1px 1px 1px 1px;
+    text-shadow: #babdb6 0px 0px 4px;
+    writing-mode: tb-rl;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.openerp div.oe_help{
+    color: white;
+    font-size: 1.1em;
+    overflow: hidden;
+}
+
+.openerp div.oe_help{
+    margin: 10px;
+    padding: 3px;
+	/* old browsers */
+	background: #c52020; 
+	/* firefox */
+	background: -moz-linear-gradient(top, #2e3436 0%, #555753 100%); 
+    /* webkit */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2e3436), color-stop(100%,#555753)); 
+	box-shadow: inset 0px 0px 6px #fff;
+	-webkit-box-shadow: inset 0px 0px 6px #fff;
+	border: 1px solid white;
+	border-radius: 4px;
+}
+
+.openerp div.oe_button_float_left {
+    float: left;
+}
