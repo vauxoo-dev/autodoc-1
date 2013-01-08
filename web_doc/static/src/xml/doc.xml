@@ -30,6 +30,11 @@
                         title="See process related to this windows" 
                         href="#"><span class="oe_ic">a</span> BPM</a>
                     </div>
+                    <div class="oe_button_float_left">
+                        <a  class="oe_highlight oe_button_doc oe_link-doc" 
+                        title="See process related to this windows" 
+                        href="/web_doc/static/src/_build/html/index.html"><span class="oe_ic">d</span> DOC</a>
+                    </div>
               </div>
             </div>
           </div>
