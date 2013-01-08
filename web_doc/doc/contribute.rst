@@ -1,7 +1,7 @@
 .. sectnum::
     :start: 1
 
-All the coding guidelines of herrera is based on 
+All the coding guidelines of community is based on 
 `OpenERP guidelines for coding.`_
 
 Some exceptions in Styles are in this code that you must to follow to approve 
@@ -47,7 +47,7 @@ on the core of OpenERP.
 New classes signature.
 ''''''''''''''''''''''
 
-All new classes must start with ``herreraName`` see it in `CamelCase`.
+All new classes must start with ``communityName`` see it in `CamelCase`.
 
 i.e.:
 
@@ -74,23 +74,23 @@ File management for new objects
 '''''''''''''''''''''''''''''''
 
 All new objects will be in a new folder, with both xml and py files, see 
-``herrera`` modules for some example.
+``community`` modules for some example.
 
 About Openerp Version.
 ----------------------
 
-In version 1.0 of herrera we decide work with version 7.0 of OpenERP, for 
+In version 1.0 of community we decide work with version 7.0 of OpenERP, for 
 this reason some specific conventions must be verified.
 
 Views 7.0 compatibles.
 ''''''''''''''''''''''
 
-All views that use herrera will comply with version 7.0 of OpenERP.
+All views that use community will comply with version 7.0 of OpenERP.
 
 About Data for Standards.
 -------------------------
 
-Data loaded should be in an extra module called herrera_yourstandard_data, 
+Data loaded should be in an extra module called community_yourstandard_data, 
 to separate data errors from model errors, frequently data dont change too much, 
 because it is based on Standards.
 
@@ -107,11 +107,11 @@ in an extra module, it means.
 
 i.e:
 
-* Creation of Automated invoices and commercial management: herrera_account
-* Relation with sale orders: herrera_sale
-* Relation with purchase: herrera_purchase
+* Creation of Automated invoices and commercial management: community_account
+* Relation with sale orders: community_sale
+* Relation with purchase: community_purchase
 
-Avoid use names not self descriptive, as `herrera_purchase_ext`, the correct 
+Avoid use names not self descriptive, as `community_purchase_ext`, the correct 
 sufix should say what it is improving.
 
 Useability Guidelines.
@@ -181,4 +181,4 @@ Try to commit with a really `explicit`_ message to avoid unecessary comments
 .. _explicit: http://doc.openerp.com/v6.1/contribute/15_guidelines/coding_guidelines_framework.html#bazaar-is-your-historian
 .. _pep8 convention: http://www.python.org/dev/peps/pep-0008/
 .. _autodoc: http://sphinx-doc.org/ext/autodoc.html#directive-autoattribute
-.. _discussion: https://blueprints.launchpad.net/herrera/+spec/coding-guidelines
+.. _discussion: https://blueprints.launchpad.net/community/+spec/coding-guidelines
