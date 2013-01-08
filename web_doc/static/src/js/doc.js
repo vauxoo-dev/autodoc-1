@@ -1,9 +1,9 @@
-openerp.web_doc_herrera = function (instance) {
+openerp.web_doc = function (instance) {
     var QWeb = instance.web.qweb;
           _t = instance.web._t;
           view_info = instance.web.ViewManager;
     instance.web.DocButton = instance.web.Widget.extend({
-        template:'web_doc_herrera.DocButton',
+        template:'web_doc.DocButton',
         events: {
             'click .oe_link-tech-info': 'watch_stop',
         },
@@ -178,14 +178,6 @@ openerp.web_doc_herrera = function (instance) {
                 });
             var form_controller = pop.view_form;
             pop.on('write_completed', self, self.initialize_process_view);
-        },
-        
-        switch_mode: function (view_type, no_store, view_options){
-            $.when(view_type, no_store, view_options).then(
-                function (a, b, c) {
-                    console.log(a +'\n===========    =============\n' + b +'\n===========    =============\n' + c);
-            });
-            this._super(view_type, no_store, view_options);
         },
     });
  };

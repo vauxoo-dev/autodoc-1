@@ -30,7 +30,7 @@ def read_base_doc(name):
     Method that will be sure to convert path of index in absolute path.
     :return: Absolute path for template system
     '''
-    m = openerp.addons.web_doc_herrera.__path__
+    m = openerp.addons.web_doc.__path__
     base = m and m[0] or ''
     templates = os.path.join(base,'static','src','templates') 
     if os.path.isdir(templates):
@@ -53,7 +53,8 @@ class HerreraDoc(web.http.Controller):
 
     @web.http.httprequest
     def index(self, req, s_action=None, **kw):
-        basepath = read_base_doc("index.html")
+#        basepath = read_base_doc("index.html")
+        basepath = "////"
         return str(basepath)
 
 class JsonInfoDoc(openerpweb.Controller):

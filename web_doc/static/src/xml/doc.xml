@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
-  <t t-name="web_doc_herrera.DocButton">
+  <t t-name="web_doc.DocButton">
     <div class="oe_topbar_doc_doc">
       <a title='See Embeded doc for the actual Elements' class="oe_doc_doc_show">b</a>
       <div class="oe_doc_float_help_fixed">
@@ -24,7 +24,7 @@
                    <a  class="oe_highlight oe_button_doc oe_link-tech-info" 
                      href="#"><span class="oe_ic">U</span> TECH</a>
               </div>
-            <!-- COMMENTED ALWAYS     <img class="oe_logo" src="/web_doc_herrera/static/src/img/logo2.png"/><br/>-->
+            <!-- COMMENTED ALWAYS     <img class="oe_logo" src="/web_doc/static/src/img/logo2.png"/><br/>-->
                     <div class="oe_button_float_left">
                         <a  class="oe_highlight oe_button_doc oe_link-process" 
                         title="See process related to this windows" 
@@ -36,9 +36,5 @@
         </div>
       </div>
     </div>
-  </t>
-  
-  <t t-name="web_doc_herrera.DocContent">
-    <div>HEll</div>
   </t>
 </template>
