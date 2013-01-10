@@ -44,8 +44,12 @@ Self Explain showing:
     'depends': [
                         'base',
                         'web', 
-                        'process'
+                        'process',
+                        'web_url2',
                         ],
+    "data": [
+        "view/web_doc_view.xml"
+    ],
     "qweb": [
         "static/src/xml/doc.xml",
     ],
