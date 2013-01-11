@@ -45,7 +45,7 @@ Self Explain showing:
                         'base',
                         'web', 
                         'process',
-                        'web_url2',
+                        'web_url',
                         ],
     "data": [
         "view/web_doc_view.xml"

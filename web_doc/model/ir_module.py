@@ -39,10 +39,10 @@ class ir_module(osv.Model):
         if context is None:
             context = {}
         result = {}
+        print "intente calcular"
         installed_ids = self.search(cr, uid, [('state', '=', 'installed')])
         for i in ids:
             if i in installed_ids:
-#                print "Im installed"
                 read_name = self.read(cr, uid, i, ['name'], context=context)
                 name = read_name and read_name.get('name', '') or ''
                 pathtodoclist = eval("addons."+name+".__path__")
