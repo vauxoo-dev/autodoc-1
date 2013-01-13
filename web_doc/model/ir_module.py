@@ -39,7 +39,6 @@ class ir_module(osv.Model):
         if context is None:
             context = {}
         result = {}
-        print "intente calcular"
         installed_ids = self.search(cr, uid, [('state', '=', 'installed')])
         for i in ids:
             if i in installed_ids:
@@ -51,10 +50,9 @@ class ir_module(osv.Model):
                 if os.path.isdir(dirdoc):
                     result[i] = {'has_doc': True, 
                                  'link_doc': '/'+name+'/static/src/_build/html/index.html'}
-                else:
-                    result[i] = {'has_doc': False,
-                                 'link_doc': 'http://localhost'}
-                print result
+            else:
+                result[i] = {'has_doc': False,
+                             'link_doc': 'http://doc.openerp.com'}
         return result
 
     _columns = {
