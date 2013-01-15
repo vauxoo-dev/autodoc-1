@@ -33,9 +33,15 @@ Self Explain showing:
  * Action Help.
  * Fields descriptions and help.
  * Direct link to process.
- * Direct link to How To's. TODO: Platform to sopport it.
- * Direct link to videos. TODO: Platform to support it. (Youtube - Vimeo - Internal)?
+ * Direct link to How To's.
+  - Link in the bottom view of the module form.
+  - TODO: Add link specific in actions.
+ * Direct link to videos. 
+  - Link in the bottom view of the module form.
+  - TODO: Add link specific in actions.
  * Attached documents: It so common have help in .doc, .odt and so on.
+  - This files should be in static directory on module.
+  - TODO: Add link specific in actions.
  * Manage Attachments to process itself (Not so common to understand).
  
 """,

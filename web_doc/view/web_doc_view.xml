@@ -13,12 +13,19 @@
                         <field name="has_doc" />
                         <label for="link_doc" string="Link to Static Doc."/>
                         <field name="link_doc" widget="relative_url"/>
-                        <button name="action_compile_doc" 
+                        <!--
+                        This Button will allow us to compile doc automagically
+                        From Interface.
+                        I am commenting to use it after.
+                        -->
+                    <!--                                                
+                    <button name="action_compile_doc"
                                 states="installed" 
                                 string="Compile Docs" 
                                 type="object" 
                                 class="oe_highlight"
                                 help="You can compile the embeded doc and generate the link to read it"/>
+                                -->
                 </xpath>
             </field>
         </record>

@@ -21,6 +21,7 @@
 ##############################################################################
 
 import os
+import subprocess
 from openerp import pooler, tools
 from openerp import addons
 from openerp.osv import fields, osv
@@ -31,6 +32,19 @@ class ir_module(osv.Model):
     _inherit='ir.module.module'
 
     def action_compile_doc(self, cr, uid, ids, context = None):
+        '''
+        This method will be used to autocompile docs per module.
+        For now it is braking with Popen command and it will need 
+        deeper research, i will mark as TODO: For now posposed.
+        '''
+        read_names = self.read(cr, uid, ids, ['name'], context=context)
+        for r in read_names:
+            name = r and r.get('name', '') or ''
+            pathtodoclist = eval("addons."+name+".__path__")
+            pathtodoc = pathtodoclist and pathtodoclist[0] or ''
+            dirdoc = os.path.join(pathtodoc,'doc')
+#            if os.path.isdir(dirdoc):
+#                a = subprocess.call(['cd', dirdoc])
         return True
 
     def _has_doc(self, cr, uid, ids, field_name, arg, context = None):
@@ -49,6 +63,9 @@ class ir_module(osv.Model):
                 dirdoc = os.path.join(pathtodoc,'doc')
                 if os.path.isdir(dirdoc):
                     result[i] = {'has_doc': True, 
+                                 'link_doc': '/'+name+'/static/src/_build/html/index.html'}
+                else:
+                    result[i] = {'has_doc': False, 
                                  'link_doc': '/'+name+'/static/src/_build/html/index.html'}
             else:
                 result[i] = {'has_doc': False,
