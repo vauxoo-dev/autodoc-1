@@ -22,10 +22,37 @@
 
 import os
 import subprocess
+import re
+
 from openerp import pooler, tools
 from openerp import addons
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
+import httplib
+import urlparse
+
+def get_server_status_code(url):
+    """
+    Download just the header of a URL and
+    return the server's status code.
+    """
+    # http://stackoverflow.com/questions/1140661
+    host, path = urlparse.urlparse(url)[1:3]    # elems [1] and [2]
+    try:
+        conn = httplib.HTTPConnection(host)
+        conn.request('HEAD', path)
+        return conn.getresponse().status
+    except StandardError:
+        return None
+
+def check_url(url):
+    """
+    Check if a URL exists without downloading the whole file.
+    We only check the URL header.
+    """
+    # see also http://stackoverflow.com/questions/2924422
+    good_codes = [httplib.OK, httplib.FOUND, httplib.MOVED_PERMANENTLY]
+    return get_server_status_code(url) in good_codes
 
 class ir_module(osv.Model):
     
@@ -66,17 +93,24 @@ class ir_module(osv.Model):
                                  'link_doc': '/'+name+'/static/src/_build/html/index.html'}
                 else:
                     result[i] = {'has_doc': False, 
-                                 'link_doc': '/'+name+'/static/src/_build/html/index.html'}
+                                 'link_doc': "http://doc.openerp.com"}
             else:
+                read_name = self.read(cr, uid, i, ['name'], context=context)
+                name = read_name and read_name.get('name', '') or ''
                 result[i] = {'has_doc': False,
-                             'link_doc': 'http://doc.openerp.com'}
+                             'link_doc': '/web_doc/'+name+'/doc/index.html'}
+                #test if computed url exist, it is to avoid cross reference in js side.
+            link = result[i].get('link_doc')
+            if link and re.match('^(http|https|ftp|sftp)', link):
+                print "If it is or not   "+str(check_url(link))
+                    
         return result
 
     _columns = {
         'has_doc' : fields.function(_has_doc, 
                     string='Has doc to compile', 
                     type='boolean', 
-                    help="Just to know if this module has doc to compile",
+                    help="Just to know if this module has doc to compile, True if all the module comply with doc structure, if not, 2 options, go and compile documentation with sphinx or verify you cam make it comply",
                     multi='has_doc'),
         'link_doc' : fields.function(_has_doc, 
                     string='See compiled doc', 
