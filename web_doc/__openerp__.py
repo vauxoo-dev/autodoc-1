@@ -40,9 +40,12 @@ Self Explain showing:
   - Link in the bottom view of the module form.
   - TODO: Add link specific in actions.
  * Attached documents: It so common have help in .doc, .odt and so on.
-  - This files should be in static directory on module.
+  - This files should be in Videostatic directory on module.
   - TODO: Add link specific in actions.
  * Manage Attachments to process itself (Not so common to understand).
+ 
+TODO: With this module we will have a documentation index to manage all relations in
+with the windows and actions.
  
 """,
     'author': 'Vauxoo',
