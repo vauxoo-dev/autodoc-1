@@ -174,7 +174,7 @@ openerp.web_doc = function (instance) {
                 self.process_id,
                 self.context || self.dataset.context,
                 {
-                    title: _t('ProceRRRRRss')
+                    title: _t('Process')
                 });
             var form_controller = pop.view_form;
             pop.on('write_completed', self, self.initialize_process_view);

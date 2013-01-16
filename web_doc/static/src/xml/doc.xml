@@ -32,8 +32,13 @@
                     </div>
                     <div class="oe_button_float_left">
                         <a  class="oe_highlight oe_button_doc oe_link-doc" 
-                        title="See process related to this windows" 
+                        title="See documentation in html" 
                         href="/web_doc/static/src/_build/html/index.html"><span class="oe_ic">d</span> DOC</a>
+                    </div>
+                    <div class="oe_button_float_left">
+                        <a  class="oe_highlight oe_button_doc oe_link-doc" 
+                        title="See Videos related to this windows" 
+                        href="/web_doc/static/src/_build/html/index.html"><span class="oe_ic">M</span> VIDEO</a>
                     </div>
               </div>
             </div>
