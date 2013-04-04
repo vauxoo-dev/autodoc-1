@@ -21,8 +21,7 @@ import babel.messages.pofile
 import werkzeug.utils
 import werkzeug.wrappers
 import openerp
-import web
-from web import http
+from openerp.addons.web import http
 openerpweb = http
 
 def read_base_doc(name):
@@ -39,7 +38,7 @@ def read_base_doc(name):
         raise ValueError("Template folder dont exist in this module")
 
 
-class HerreraDoc(web.http.Controller):
+class HerreraDoc(openerpweb.Controller):
     '''
     With this controller we will manage all documentation.
     The important thing here is the admin part.
@@ -51,7 +50,7 @@ class HerreraDoc(web.http.Controller):
     '''
     _cp_path='/doc'
 
-    @web.http.httprequest
+    @openerpweb.httprequest
     def index(self, req, s_action=None, **kw):
 #        basepath = read_base_doc("index.html")
         basepath = "////"
