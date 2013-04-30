@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+         <record model="ir.ui.view" id="view_window_action_form_inherit">
+            <field name="name">ir.action.form.inherit2</field>
+            <field name="model">ir.actions.act_window</field>
+            <field name="inherit_id" ref="base.view_window_action_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='help']" position="after">
+                    <field name="doc"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -55,10 +55,11 @@ relations in with the windows and actions.
                 'web',
                 'process',
                 'web_url',
-                'document_page',
+                'vauxoo_cms',
     ],
     "data": [
-        "view/web_doc_view.xml"
+        "view/web_doc_view.xml",
+        "view/ir_actions_view.xml"
     ],
     "qweb": [
         "static/src/xml/doc.xml",
