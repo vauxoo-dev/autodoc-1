@@ -1,6 +1,6 @@
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution    
+#    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2009 Tiny SPRL (<http://tiny.be>). All Rights Reserved
 #    planified and programmed by Nhomar Hernandez nhomar@vauxoo.com
 #
@@ -22,7 +22,7 @@
 {
     'name': 'Docs',
     'category': 'Knowledge',
-    'description':"""
+    'description': """
 Help and Documentation management.
 ==================================
 
@@ -36,26 +36,27 @@ Self Explain showing:
  * Direct link to How To's.
   - Link in the bottom view of the module form.
   - TODO: Add link specific in actions.
- * Direct link to videos. 
+ * Direct link to videos.
   - Link in the bottom view of the module form.
   - TODO: Add link specific in actions.
  * Attached documents: It so common have help in .doc, .odt and so on.
   - This files should be in Videostatic directory on module.
   - TODO: Add link specific in actions.
  * Manage Attachments to process itself (Not so common to understand).
- 
-TODO: With this module we will have a documentation index to manage all relations in
-with the windows and actions.
- 
+ * Link to actions to a content, in this way we can call the "Help Extended"
+
+TODO: With this module we will have a documentation index to manage all
+relations in with the windows and actions.
 """,
     'author': 'Vauxoo',
     'version': '0.1',
     'depends': [
-                        'base',
-                        'web', 
-                        'process',
-                        'web_url',
-                        ],
+                'base',
+                'web',
+                'process',
+                'web_url',
+                'document_page',
+    ],
     "data": [
         "view/web_doc_view.xml"
     ],

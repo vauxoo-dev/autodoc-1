@@ -24,7 +24,6 @@ import os
 import subprocess
 import re
 
-from openerp import pooler, tools
 from openerp import addons
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
@@ -91,25 +90,28 @@ class ir_module(osv.Model):
             if i in installed_ids:
                 read_name = self.read(cr, uid, i, ['name'], context=context)
                 name = read_name and read_name.get('name', '') or ''
-                pathtodoclist = eval("addons."+name+".__path__")
+                pathtodoclist = eval("addons." + name + ".__path__")
                 pathtodoc = pathtodoclist and pathtodoclist[0] or ''
                 dirdoc = os.path.join(pathtodoc, 'doc')
                 if os.path.isdir(dirdoc):
+                    lnk = '/'.join(['', name,
+                                    'static/src/_build/html/index.html'])
                     result[i] = {'has_doc': True,
-                                 'link_doc': '/'+name+'/static/src/_build/html/index.html'}
+                                 'link_doc': lnk}
                 else:
                     result[i] = {'has_doc': False,
                                  'link_doc': "http://doc.openerp.com"}
             else:
                 read_name = self.read(cr, uid, i, ['name'], context=context)
                 name = read_name and read_name.get('name', '') or ''
+                lnk = '/'.join(['', 'web_doc', name, 'doc/index.html'])
                 result[i] = {'has_doc': False,
-                             'link_doc': '/web_doc/'+name+'/doc/index.html'}
+                             'link_doc': lnk}
                 # test if computed url exist, it is to avoid cross reference in
                 # js side.
             link = result[i].get('link_doc')
             if link and re.match('^(http|https|ftp|sftp)', link):
-                print "If it is or not   "+str(check_url(link))
+                print "If it is or not   " + str(check_url(link))
 
         return result
 
@@ -117,7 +119,11 @@ class ir_module(osv.Model):
         'has_doc': fields.function(_has_doc,
                                    string='Has doc to compile',
                                    type='boolean',
-                                   help="Just to know if this module has doc to compile, True if all the module comply with doc structure, if not, 2 options, go and compile documentation with sphinx or verify you cam make it comply",
+                                   help="""Just to know if this module has doc
+                                   to compile, True if all the module comply
+                                   with doc structure, if not, 2 options, go
+                                   and compile documentation with sphinx or
+                                   verify you cam make it comply""",
                                    multi='has_doc'),
         'link_doc': fields.function(_has_doc,
                                     string='See compiled doc',
