@@ -16,6 +16,8 @@
 	                        <h2><t t-raw="widget.av.action.name"/></h2>
 	                        <h3>User Help:</h3>
                                 <t t-raw="widget.av.action.help"/>
+                                <hr></hr>
+                                <h1><t t-raw="widget.av.action.doc_body"/></h1>
                         </t>
                         </div>
               </div>

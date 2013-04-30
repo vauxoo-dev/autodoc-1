@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='help']" position="after">
                     <field name="doc"/>
+                    <field name="doc_body"/>
                 </xpath>
             </field>
         </record>

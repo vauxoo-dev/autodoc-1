@@ -7,9 +7,10 @@ class act_window(osv.osv):
     
     _inherit = 'ir.actions.act_window'
     _columns = {
-    'doc':fields.many2one('document.page', 'Long Doc.',
+    'doc': fields.many2one('document.page', 'Long Doc.',
         domain = [('type', '=', 'content')],
-        help = '''Link to document page of this action.'''), 
+        help = '''Link to document page of this action.'''),
+    'doc_body': fields.related('doc', 'body', type='text', string='Doc'),
     }
 
 
