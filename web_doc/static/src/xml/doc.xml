@@ -24,17 +24,17 @@
                                    <hr></hr>
                                      <div class="oe_button_float_left">
                                        <a class="oe_highlight  oe_button_doc" 
-                                          href="http://google.com">
+                                       t-attf-href="{widget.av.action.linktome}">
                                           <span class="oe_ic">-</span>Edit Help
-                                          </a>
+                                       </a>
                                      </div>
                                 </t>
                                 <t t-if="!(widget.av.action.doc_body)">
                                    <hr></hr>
                                      <div class="oe_long_content">
                                         <div class="oe_button_float_left">
-                                            <a class="oe_highlight  oe_button_doc" 
-                                                href="http://google.com">
+                                          <a class="oe_highlight  oe_button_doc" 
+                                          t-attf-href="{widget.av.action.linktome}">
                                                 <span class="oe_ic">*</span>Create Help
                                           </a>
                                         </div>
