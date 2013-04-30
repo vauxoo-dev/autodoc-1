@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <!--
+            Process
+        -->
+        <record id="process_process_new_content" model="process.process">
+            <field eval="1" name="active"/>
+             <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;Internal Documentation&quot;&quot;&quot;" name="name"/>
+        </record>
+        <!--
+            Process Node
+        -->
+        <record id="process_node_draft0" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Audit department&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Audit department detect and document a change&quot;&quot;&quot;" name="note"/>
+            <field name="process_id" ref="process_process_new_content"/>
+            <field eval="&quot;&quot;&quot;object.state in ('draft')&quot;&quot;&quot;" name="model_states"/>
+            <field eval="1" name="flow_start"/>
+        </record>
+        <record id="process_node_draft1" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Improvement in code&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;IT team develop a new feature&quot;&quot;&quot;" name="note"/>
+            <field name="process_id" ref="process_process_new_content"/>
+            <field eval="&quot;&quot;&quot;object.state in ('draft')&quot;&quot;&quot;" name="model_states"/>
+            <field eval="1" name="flow_start"/>
+        </record>
+        <record id="process_node_draft2" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Manual Show&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Actually there a feature or decition to show to team&quot;&quot;&quot;" 
+                   name="note"/>
+            <field name="process_id" ref="process_process_new_content"/>
+            <field eval="&quot;&quot;&quot;object.state in ('draft')&quot;&quot;&quot;" name="model_states"/>
+            <field eval="1" name="flow_start"/>
+        </record>
+        <record id="process_node_review" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Ready for review&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Ready for a manager to approve the content&quot;&quot;&quot;" 
+                   name="note"/>
+            <field name="process_id" ref="process_process_new_content"/>
+            <field eval="&quot;&quot;&quot;object.state in ('review')&quot;&quot;&quot;" name="model_states"/>
+        </record>
+        <record id="process_node_published" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Published&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;A manager approve the content&quot;&quot;&quot;" name="note"/>
+            <field name="process_id" ref="process_process_new_content"/>
+            <field eval="&quot;&quot;&quot;object.state in ('published')&quot;&quot;&quot;" name="model_states"/>
+        </record>
+        <!--
+            Process Transition
+        -->
+        <record id="process_transition_draft2review0" model="process.transition">
+            <field eval="[(6,0,[])]" name="transition_ids"/>
+            <field eval="&quot;&quot;&quot;Ready for Review&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Everybody understand the doc.&quot;&quot;&quot;" name="note"/>
+            <field model="process.node" name="source_node_id" ref="process_node_draft0"/>
+            <field model="process.node" name="target_node_id" ref="process_node_review"/>
+        </record>
+        <record id="process_transition_draft2review1" model="process.transition">
+            <field eval="[(6,0,[])]" name="transition_ids"/>
+            <field eval="&quot;&quot;&quot;Ready for Review&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Everybody understand the doc.&quot;&quot;&quot;" name="note"/>
+            <field model="process.node" name="source_node_id" ref="process_node_draft1"/>
+            <field model="process.node" name="target_node_id" ref="process_node_review"/>
+        </record>
+        <record id="process_transition_draft2review2" model="process.transition">
+            <field eval="[(6,0,[])]" name="transition_ids"/>
+            <field eval="&quot;&quot;&quot;Ready for Review&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Everybody understand the doc.&quot;&quot;&quot;" name="note"/>
+            <field model="process.node" name="source_node_id" ref="process_node_draft2"/>
+            <field model="process.node" name="target_node_id" ref="process_node_review"/>
+        </record>
+        <record id="process_transition_review2published" model="process.transition">
+            <field eval="[(6,0,[])]" name="transition_ids"/>
+            <field eval="&quot;&quot;&quot;Ready to publish&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Everybody understand the doc.&quot;&quot;&quot;" name="note"/>
+            <field model="process.node" name="source_node_id" ref="process_node_review"/>
+            <field model="process.node" name="target_node_id" ref="process_node_published"/>
+        </record>
+        <!--
+            Process
+        -->
+        <record id="process_process_new_block" model="process.process">
+            <field eval="1" name="active"/>
+             <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;Content external Publication&quot;&quot;&quot;" name="name"/>
+        </record>
+        <record id="process_node_draftcontent0" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Create Public Content&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Audit department detect and document a change&quot;&quot;&quot;" name="note"/>
+            <field name="process_id" ref="process_process_new_block"/>
+            <field eval="&quot;&quot;&quot;object.state in ('draft')&quot;&quot;&quot;" name="model_states"/>
+            <field eval="1" name="flow_start"/>
+        </record>
+        <record id="process_node_menucreated" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Create Menu&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Menu to show the element (If it applies)&quot;&quot;&quot;" name="note"/>
+            <field name="process_id" ref="process_process_new_block"/>
+            <field eval="&quot;&quot;&quot;object.state in ('menucreated')&quot;&quot;&quot;" name="model_states"/>
+        </record>
+        <record id="process_node_published1" model="process.node">
+            <field name="menu_id" ref="vauxoo_cms.cms_cms_content"/>
+            <field name="model_id" ref="vauxoo_cms.model_document_page"/>
+            <field eval="&quot;&quot;&quot;state&quot;&quot;&quot;" name="kind"/>
+            <field eval="&quot;&quot;&quot;Published&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;A manager approve the content&quot;&quot;&quot;" name="note"/>
+            <field name="process_id" ref="process_process_new_block"/>
+            <field eval="&quot;&quot;&quot;object.state in ('published')&quot;&quot;&quot;" name="model_states"/>
+        </record>
+        <!--
+            Process Transition
+        -->
+        <record id="process_transition_draft2menu" model="process.transition">
+            <field eval="[(6,0,[])]" name="transition_ids"/>
+            <field eval="&quot;&quot;&quot;To create Menu&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Everybody understand the doc.&quot;&quot;&quot;" name="note"/>
+            <field model="process.node" name="source_node_id" ref="process_node_draftcontent0"/>
+            <field model="process.node" name="target_node_id" ref="process_node_menucreated"/>
+        </record>
+        <record id="process_transition_menu2published" model="process.transition">
+            <field eval="[(6,0,[])]" name="transition_ids"/>
+            <field eval="&quot;&quot;&quot;To publish&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;Everybody understand the doc.&quot;&quot;&quot;" name="note"/>
+            <field model="process.node" name="source_node_id" ref="process_node_menucreated"/>
+            <field model="process.node" name="target_node_id" ref="process_node_published1"/>
+        </record>
+    </data>
+</openerp>

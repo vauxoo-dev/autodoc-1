@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="group_cms_user" model="res.groups">
+             <field name="users" eval="[(6,0,[ref('base.user_demo')])]"/>
+        </record>
+        <record id="group_cms_manager" model="res.groups">
+             <field name="users" eval="[(6,0,[ref('base.user_root'),ref('base.user_demo')])]"/>
+        </record>
+    </data>
+</openerp>

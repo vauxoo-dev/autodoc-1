@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem id="cms_main" name="CMS" sequence="50"
+            groups="group_cms_user,group_cms_manager"/>
+            
+            <record model="ir.ui.view" id="view_cms_form">
+                <field name="name">cms.form</field>
+                <field name="priority">100</field>
+                <field name="model">document.page</field>
+                <field name="arch" type="xml">                
+                    <form string="Page Admin View" version="7.0"> 
+                        <header>
+                            <button  name='%(action_cms_create_menu)d' 
+                                    string="Create Menu" 
+                                    type="action" 
+                                    class="oe_highlight"/>
+                            <button  name='act_review' 
+                                    string="Review" 
+                                    type="object"
+                                    states="published,draft"/>
+                            <button  name='act_published' 
+                                    string="Publish" 
+                                    type="object"
+                                    states="review"/>
+                            <button  name='act_draft' 
+                                    string="Set to Draft" 
+                                    type="object"
+                                    states="published"/>
+                            <field name="state" widget="statusbar"
+                           statusbar_visible="draft,review,published"
+                           statusbar_colors='{"draft":"blue","review":"blue","review":"red"}'/>
+                        </header>      
+                        <field name="type" invisible="1"/>
+                        <h1><field name="name" placeholder="Name Help Say Something"/></h1>
+                        <group class="oe_edit_only">
+                            <notebook colspan="4">
+                                <page string="Selection Info">
+                                    <group>
+                                        <field name="parent_id" 
+                                        on_change="onchange_parent_id(parent_id,content)" 
+                                        string="Category"/>
+                                    </group>
+                                </page>
+                                <page string="Technical Info">
+                                    <group>
+                                        <field name="write_uid" groups="base.group_no_one"/>
+                                        <field name="write_date" groups="base.group_no_one"/>
+                                        <field name="cms_menu_ids"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                        <div class="oe_edit_only" attrs="{'invisible':[('type','=','content')]}">
+                            <label for="content" string="Template"/>
+                            that will be used as a content template for all new page of this category.
+                        </div>
+                            <field name="content" 
+                                   placeholder="e.g. Once upon a time..." 
+                                   class="oe_edit_only"/>
+                        <div class="oe_edit_only">
+                            <label for="sequence"/>                   
+                            <field name="sequence"/>
+                            <label for="type_id"/>
+                            <field name="type_id"/>
+                            <label for="text_id"/>
+                            <field name="text_id" class="oe_edit_only"/>
+                            <label for="publishing"/>
+                            <field name="publishing" class="oe_edit_only"/>
+                            <label for="user_id"/>
+                            <field name="user_id" class="oe_edit_only"/>
+                            <label for="url"/>
+                            <field name="url"/>
+                            <label for="allow_comments"/>
+                            <field name="allow_comments" class="oe_edit_only"/>
+                        </div>
+                        <div class="oe_document_page">
+                            <field name="display_content2" 
+                                   widget="html" class="oe_view_only oe_red" 
+                                   options='{"safe": True}'/>
+                        </div>
+                    </form>
+                </field>
+            </record>
+            <record id="view_cms_search" model="ir.ui.view">
+                <field name="name">cms.search</field>
+                <field name="model">document.page</field>
+                <field name="priority">100</field>
+                <field name="arch" type="xml">
+                    <search string="Search Content">
+                        <group>
+                            <field name="sequence"/>
+                            <field name="name"/>
+                            <field name="text_id"/>
+                            <field name="publishing"/>
+                            <field name="menu_id"/>
+                            <field name="user_id"/>
+                            <field name="state"/>
+                            <field name="url"/>
+                            <field name="allow_comments"/>
+                        </group>
+                    </search>
+                </field>
+            </record>
+<!--            Actions to show pages-->
+            <record id="cms_action_tree" model="ir.actions.act_window">
+                <field name="name">Contents on Website</field>
+                <field name="res_model">document.page</field>
+                <field name="domain">[('type','=','content')]</field>
+                <field name="context">{'default_type': 'content'}</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cms_search"/>
+                <field name="help">Load content directly on your website, using advanced features and linked to your Site</field>
+            </record>
+            <record model="ir.actions.act_window.view" id="view_wired_tree">
+                <field name="act_window_id" ref='cms_action_tree'/>
+                <field name="sequence">10</field>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="document_page.view_wiki_tree"/>
+            </record>
+            <record model="ir.actions.act_window.view" id="view_wired_form">
+                <field name="act_window_id" ref='cms_action_tree'/>
+                <field name="sequence">20</field>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref='view_cms_form'/>
+            </record>
+<!--            End of action to show pages-->
+            <menuitem id="cms_cms" name="Contents" sequence="50"
+                groups="group_cms_user,group_cms_manager"
+                parent="cms_main"/>
+            <menuitem id="cms_cms_content" name="Contents" sequence="50"
+                groups="group_cms_user,group_cms_manager"
+                parent="cms_cms"
+                action="cms_action_tree"/>
+<!--                Actions to show Blocks-->
+            <record id="cms_action_tree_block" model="ir.actions.act_window">
+                <field name="name">Blocks on Website</field>
+                <field name="res_model">document.page</field>
+                <field name="domain">[('type','=','block')]</field>
+                <field name="context">{'default_type': 'block'}</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="search_view_id" ref="view_cms_search"/>
+                <field name="help">A block is an html section in your site,
+You can create as much blocks as you want to be able to show specifica content in an specific region in your site.
+Som reference about What a block is here >> href="http://drupal.org/documentation/blocks"</field>
+            </record>
+            <record model="ir.actions.act_window.view" id="view_wired_tree2">
+                <field name="act_window_id" ref='cms_action_tree_block'/>
+                <field name="sequence">10</field>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="document_page.view_wiki_tree"/>
+            </record>
+            <record model="ir.actions.act_window.view" id="view_wired_form2">
+                <field name="act_window_id" ref='cms_action_tree_block'/>
+                <field name="sequence">20</field>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref='view_cms_form'/>
+            </record>
+<!--            End of actions to show Blocks-->
+            <menuitem id="cms_cms_blocks" name="Blocks" sequence="70"
+                groups="group_cms_user,group_cms_manager"
+                action="cms_action_tree_block"
+                parent="cms_cms"/>
+            <menuitem id="cms_cms_menus_main" name="Menus" sequence="50"
+                groups="group_cms_user,group_cms_manager"
+                parent="cms_main"/>
+    </data>
+</openerp>

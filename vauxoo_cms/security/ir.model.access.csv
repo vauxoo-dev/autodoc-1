@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_anonymous_document_page,vauxoo_cms.anonymous.document.page,document_page.model_document_page,portal.group_anonymous,1,0,0,0
+access_anonymous_document_page_history,vauxoo_cms.anonymous.document.page.history,document_page.model_document_page_history,portal.group_anonymous,1,0,0,0
+access_anonymous_res_partner,vauxoo_cms.anonymous.res.partner,base.model_res_partner,portal.group_anonymous,1,0,0,0
+access_cms_text_format,access_cms_text_format,model_cms_text_format,,1,1,1,1
+access_cms_type,access_cms_type,model_cms_type,,1,1,1,1

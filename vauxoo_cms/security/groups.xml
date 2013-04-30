@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="group_cms_user" model="res.groups">
+            <field name="name">CMS / User</field>
+        </record>
+        <record id="group_cms_manager" model="res.groups">
+            <field name="name">CMS / Administrator</field>
+        </record>
+        <record id="group_cms_menus_cms" model="res.groups">
+            <field name="name">CMS / Anonymous Menu</field>
+        </record>
+    </data>
+</openerp>

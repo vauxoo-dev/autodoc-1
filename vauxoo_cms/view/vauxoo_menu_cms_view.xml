@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!-- Start Menu with right permisions to show Just on CMS menus-->
+            <menuitem id="cms_site_main" name="Main content Dont delete ever" sequence="10"
+                groups="group_cms_menus_cms"/>
+            <menuitem id="cms_site_main_content1" name="CMS Content 1" sequence="10"
+                groups="group_cms_menus_cms"
+                parent="cms_site_main"/>
+            <record model="ir.ui.menu" id="cms_site_main_content1">
+                <field name="external_link">http://algo.com</field>
+                <field name="for_cms">True</field>
+            </record>
+            <menuitem id="cms_site_main_content2" name="CMS Content 2" sequence="20"
+                groups="group_cms_menus_cms"
+                parent="cms_site_main"/>
+            <record model="ir.ui.menu" id="cms_site_main_content2">
+                <field name="for_cms">True</field>
+            </record>
+            <menuitem id="cms_site_main_content3" name="CMS Content 3" sequence="30"
+                groups="group_cms_menus_cms"
+                parent="cms_site_main"/>
+            <record model="ir.ui.menu" id="cms_site_main_content3">
+                <field name="for_cms">True</field>
+            </record>
+            <menuitem id="cms_site_main_content4" name="CMS Content 4" sequence="40"
+                groups="group_cms_menus_cms"
+                parent="cms_site_main"/>
+            <record model="ir.ui.menu" id="cms_site_main_content4">
+                <field name="for_cms">True</field>
+            </record>
+            <menuitem id="cms_site_main_sub_content" name="CMS Content 5" sequence="40"
+                groups="group_cms_menus_cms"
+                parent="cms_site_main_content4"/>
+            <record model="ir.ui.menu" id="cms_site_main_sub_content">
+                <field name="for_cms">True</field>
+            </record>
+            <menuitem id="cms_site_main_sub_content2" name="CMS Content 6" sequence="40"
+                groups="group_cms_menus_cms"
+                parent="cms_site_main_content4"/>
+            <record model="ir.ui.menu" id="cms_site_main_sub_content2">
+                <field name="for_cms">True</field>
+            </record>
+            <menuitem id="cms_site_main_sub_content3" name="CMS Content 7" sequence="40"
+                groups="group_cms_menus_cms"
+                parent="cms_site_main_sub_content2"/>
+            <record model="ir.ui.menu" id="cms_site_main_sub_content3">
+                <field name="for_cms">True</field>
+            </record>
+            <!-- End Menu with right permisions to show Just on CMS menus-->
+            <record id="edit_menu_access" model="ir.ui.view">
+                <field name="model">ir.ui.menu</field>
+                <field name="priority">100</field>
+                <field name="arch" type="xml">
+                    <form string="Menu" version="7.0">
+                      <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="parent_id"/>
+                                <field name="sequence"/>
+                            </group>
+                            <group>
+                                <field name="complete_name"/>
+                                <field name="action"/>
+                                <field name="icon"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Groups">
+                                <field name="groups_id"/>
+                                <field name="external_link"/>
+                            </page>
+                            <page string="Submenus">
+                                <!-- Note: make sure you have 'ir.ui.menu.full_list'
+                                     in the context to see all submenus! -->
+                                <field name="child_id"
+                                        context="{'default_parent_id': active_id}">
+                                    <tree string="Menu">
+                                        <field name="sequence"/>
+                                        <field icon="icon" name="name" string="Menu"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                       </sheet> 
+                    </form>
+                </field>
+            </record>
+            <!--Advanced action to see my specific view for menus in this module-->
+            <record id="grant_menu_access" model="ir.actions.act_window">
+                <field name="name">Menu Items</field>
+                <field name="res_model">ir.ui.menu</field>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="base.edit_menu"/>
+                <field name="context" eval="{'default_for_cms':True,'default_parent_id':ref('vauxoo_cms.cms_site_main'),'ir.ui.menu.full_list':True}" />
+                <field name="domain" eval="['|', ('parent_id', '=', ref('vauxoo_cms.cms_site_main')), ('parent_id', 'child_of', ref('vauxoo_cms.cms_site_main')), ('id', '&lt;&gt;', ref('vauxoo_cms.cms_site_main')),('for_cms', '=', True)]"/>
+                <field name="search_view_id" ref="base.edit_menu_access_search"/>
+                <field name="help">Manage and customize the items available and displayed in your CMS system menu. You can delete an item by clicking on the box at the beginning of each line and then delete it through the button that appeared. Items can be assigned to specific groups in order to make them accessible to some users within the system.
+All Items in this list must be owned by group group_cms_menus_cms to be able to be shown in your CMS, all things shown on openerp ar exactly as OpenERP does. Object > View > Action > Record.
+The domain for this records is:
+['|', ('parent_id', '=', ref('vauxoo_cms.cms_site_main')), 
+('parent_id', 'child_of', ref('vauxoo_cms.cms_site_main')), 
+('id', '&lt;&gt;', ref('vauxoo_cms.cms_site_main')),
+('for_cms', '=', True)]
+                </field>
+            </record>
+            <record model="ir.actions.act_window.view" id="view_wired_menu_tree">
+                <field name="act_window_id" ref='grant_menu_access'/>
+                <field name="sequence">10</field>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="base.edit_menu"/>
+            </record>
+            <record model="ir.actions.act_window.view" id="view_wired_menu_form">
+                <field name="act_window_id" ref='grant_menu_access'/>
+                <field name="sequence">20</field>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref='edit_menu_access'/>
+            </record>
+            <!--End of advanced View.-->
+            <menuitem id="cms_cms_menus" name="Menus in your Site" sequence="50"
+                groups="group_cms_user,group_cms_manager"
+                action="grant_menu_access"
+                parent="cms_cms_menus_main"/>
+        
+    </data>
+</openerp>
