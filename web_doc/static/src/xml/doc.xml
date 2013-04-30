@@ -16,10 +16,12 @@
 	                        <h2><t t-raw="widget.av.action.name"/></h2>
 	                        <h3>User Help:</h3>
                                 <t t-raw="widget.av.action.help"/>
-                                <hr></hr>
-                                <div class="oe_long_content">
-                                    <t t-raw="widget.av.action.doc_body"/>
-                                </div>
+	                            <t t-if="widget.av.action.doc_body">
+                                   <hr></hr>
+                                     <div class="oe_long_content">
+                                       <t t-raw="widget.av.action.doc_body"/>
+                                     </div>
+                                </t>
                         </t>
                         </div>
               </div>
