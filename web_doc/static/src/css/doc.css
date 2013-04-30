@@ -88,3 +88,7 @@
 .openerp div.oe_button_float_left {
     float: left;
 }
+
+.openerp .oe_long_content {
+    font-size: 0.8em;
+}

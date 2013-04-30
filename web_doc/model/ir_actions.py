@@ -10,7 +10,9 @@ class act_window(osv.osv):
     'doc': fields.many2one('document.page', 'Long Doc.',
         domain = [('type', '=', 'content')],
         help = '''Link to document page of this action.'''),
-    'doc_body': fields.related('doc', 'body', type='text', string='Doc'),
+    'doc_body': fields.related('doc', 'content', type='text',
+        string = 'Doc', relation = 'dojcument.page', store = True,
+        help = '''Documentation related to the document page element'''),
     }
 
 
