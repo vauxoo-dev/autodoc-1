@@ -21,7 +21,7 @@ import babel.messages.pofile
 import werkzeug.utils
 import werkzeug.wrappers
 import openerp
-import web
+from openerp.addons import web
 import logging
 try:
     from jinja2 import Template
