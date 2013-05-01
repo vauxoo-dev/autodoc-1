@@ -11,8 +11,14 @@ class act_window(osv.osv):
         if context is None:
             context = {}
         res = {}
+        page_obj = self.pool.get('document.page')
         for i in ids:
-            res[i] = "hola.txt"
+            my_brw = self.browse(cr, uid, [i], context = context)
+            if my_brw[0] and my_brw[0].doc:
+                l = "#id=" + str(my_brw[0].doc.id) + "&view_type=form&model=document.page"
+            else:
+                l = "#view_type=list&model=document.page"
+            res[i] = l
         return res
 
     _columns = {

@@ -23,8 +23,7 @@
                                      </div>
                                    <hr></hr>
                                      <div class="oe_button_float_left">
-                                       <a class="oe_highlight  oe_button_doc" 
-                                       t-attf-href="{widget.av.action.linktome}">
+                                       <a  href="#" class="oe_edit_help">
                                           <span class="oe_ic">-</span>Edit Help
                                        </a>
                                      </div>
@@ -33,8 +32,7 @@
                                    <hr></hr>
                                      <div class="oe_long_content">
                                         <div class="oe_button_float_left">
-                                          <a class="oe_highlight  oe_button_doc" 
-                                          t-attf-href="{widget.av.action.linktome}">
+                                        <a  href="#" class="oe_create_help">
                                                 <span class="oe_ic">*</span>Create Help
                                           </a>
                                         </div>
