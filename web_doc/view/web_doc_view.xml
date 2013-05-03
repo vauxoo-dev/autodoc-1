@@ -27,5 +27,21 @@
                 </xpath>
             </field>
         </record>
+        <record id="document_action_form" model="ir.actions.act_window">
+            <field name="name">Create on Website</field>
+            <field name="res_model">document.page</field>
+            <field name="domain">[('type','=','content')]</field>
+            <field name="context">{'default_type': 'content'}</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="help">Load content directly on your website, using advanced features and linked to your Site</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="view_wired_form">
+            <field name="act_window_id" ref='document_action_form'/>
+            <field name="sequence">20</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref='vauxoo_cms.view_cms_form'/>
+        </record>
+
     </data>
 </openerp>

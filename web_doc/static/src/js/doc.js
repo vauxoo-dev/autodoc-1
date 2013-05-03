@@ -53,6 +53,7 @@ openerp.web_doc = function (instance) {
             this.$('a.oe_doc_doc_show').on('click', this.on_see_doc );
             this.$('.oe_doc_doc_hide').on('click', this.on_hide_doc );
             this.$('a.oe_edit_help').on('click', this.on_edit_help );
+            this.$('a.oe_create_help').on('click', this.on_edit_help );
             this.$el.find('a.oe_link-process').on('click' , function(ev) { 
                 view_info.initialize_process_view(ev);
                     $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
@@ -112,11 +113,8 @@ openerp.web_doc = function (instance) {
 
         on_edit_help: function() {
             var self = this;                                                            
-                self.rpc("/web/action/load", { action_id: "vauxoo_cms.cms_action_tree" }).done(function(result) {
-                    result.res_id = 2;
-                    console.log("I got Itttttttt");                               
-                    console.log(result);                               
-                    self.getParent().action_manager.do_action(result);                  
+                self.rpc("/web/action/load", { action_id: "web_doc.document_action_form" }).done(function(result) {
+                    self.getParent().do_action(result);                  
                 });                                                                     
         },  
 
