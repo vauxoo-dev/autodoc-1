@@ -32,6 +32,7 @@
             <field name="res_model">document.page</field>
             <field name="domain">[('type','=','content')]</field>
             <field name="context">{'default_type': 'content'}</field>
+            <!-- "TODO: Set the proper default Values." -->
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
             <field name="help">Load content directly on your website, using advanced features and linked to your Site</field>
