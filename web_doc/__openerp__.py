@@ -54,7 +54,6 @@ relations in with the windows and actions.
                 'base',
                 'web',
                 'process',
-                'web_url',
                 'vauxoo_cms',
     ],
     "data": [

@@ -12,7 +12,7 @@
                         <label for="has_doc" string="Comply with doc quality?."/>
                         <field name="has_doc" />
                         <label for="link_doc" string="Link to Static Doc."/>
-                        <field name="link_doc" widget="relative_url"/>
+                        <field name="link_doc" widget="url"/>
                         <!--
                         This Button will allow us to compile doc automagically
                         From Interface.
