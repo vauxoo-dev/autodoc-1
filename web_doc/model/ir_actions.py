@@ -26,8 +26,11 @@ class act_window(osv.osv):
         domain = [('type', '=', 'content')],
         help = '''Link to document page of this action.'''),
     'doc_body': fields.related('doc', 'content', type='text',
-        string = 'Doc', relation = 'dojcument.page', store = True,
+        string = 'Doc', relation = 'document.page', store = True,
         help = '''Documentation related to the document page element'''),
+    'doc_title': fields.related('doc', 'name', type='text',
+        string = 'Title', relation = 'document.page', store = True,
+        help = '''Documentation Title'''),
     'linktome': fields.function(_get_linktome, 'Link to me',
         help = """Link to edit me"""),
     }
