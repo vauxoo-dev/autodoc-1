@@ -4,9 +4,6 @@ openerp.web_doc = function (instance) {
           view_info = instance.web.ViewManager;
     instance.web.DocButton = instance.web.Widget.extend({
         template:'web_doc.DocButton',
-        events: {
-            'click .oe_link-tech-info': 'watch_stop',
-        },
     });
 
 
@@ -62,10 +59,6 @@ openerp.web_doc = function (instance) {
             this._super();
         },
         
-        render: function(){
-            this._super();
-        },
-
         cut_doc: function(event){
             var slideHeight = 75; // px
             var defHeight = event[0];
