@@ -91,34 +91,16 @@ openerp.web_doc = function (instance) {
                 });
             }
         },
-        watch_stop: function() {
-        },
-        edit_doc: function() {
-            console.log("Eeeeeeeeeepale");
-
-                var action = { 
-                    type: 'ir.actions.act_window',                              
-                    res_model: 'document.page',                          
-                    view_mode: 'form',                                          
-                    view_type: 'form',                                          
-                    views: [[false, 'form']],                                   
-                    target: 'inline',                                              
-                    id: 6,                                              
-                    context: {                                                  
-                    },                                                          
-                };                                                              
-                instance.client.action_manager.do_action(action); 
-
-        },
 
         on_edit_help: function() {
             var self = this;                                                            
-                self.rpc("/web/action/load", { action_id: "web_doc.document_action_form" }).done(function(result) {
-                    var action = {
-                        type: result.type,
-                        res_model: result.resmodel,
-                    };
-                    self.getParent().do_action(result);                  
+                self.rpc("/web/action/load", { action_id: "vauxoo_cms.cms_action_tree" }).done(function(result) {
+                    self.getParent().do_action(result, {
+                        additional_context: {
+                            // SEARCH DEFAULT IS NOT WORKING,
+                            // TODO: 'search_default_name': ['Category'],
+                        },
+                    });                  
                 });                                                                     
         },  
 
@@ -130,7 +112,7 @@ openerp.web_doc = function (instance) {
                     self.getParent().do_action(result, {
                         action_menu_id: 143,
                         additional_context: {
-                            'default_name': result.name
+                            'default_name': result.name,
                         },
                     });                  
                 });                                                                     
