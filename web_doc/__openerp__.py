@@ -44,6 +44,7 @@ Self Explain showing:
   - TODO: Add link specific in actions.
  * Manage Attachments to process itself (Not so common to understand).
  * Link to actions to a content, in this way we can call the "Help Extended"
+ * Auto compile with sphinx if .rst files if they are presented. 
 
 TODO: With this module we will have a documentation index to manage all
 relations in with the windows and actions.
