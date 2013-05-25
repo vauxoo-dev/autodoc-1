@@ -114,15 +114,25 @@ openerp.web_doc = function (instance) {
         on_edit_help: function() {
             var self = this;                                                            
                 self.rpc("/web/action/load", { action_id: "web_doc.document_action_form" }).done(function(result) {
-                    console.log(result.domain);
+                    var action = {
+                        type: result.type,
+                        res_model: result.resmodel,
+                    };
                     self.getParent().do_action(result);                  
                 });                                                                     
         },  
 
         on_create_help: function() {
             var self = this;                                                            
-                self.rpc("/web/action/load", { action_id: "web_doc.document_action_form" }).done(function(result) {
-                    self.getParent().do_action(result);                  
+                self.rpc("/web/action/load", { 
+                         action_id: "web_doc.document_action_form" 
+                         }).done(function(result) {
+                    self.getParent().do_action(result, {
+                        action_menu_id: 143,
+                        additional_context: {
+                            'default_name': result.name
+                        },
+                    });                  
                 });                                                                     
         },  
 
