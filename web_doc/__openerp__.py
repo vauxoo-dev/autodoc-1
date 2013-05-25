@@ -26,9 +26,10 @@
 Help and Documentation management.
 ==================================
 
-This module is to manage all documentation available on a module.
+This module is to manage all documentation available on a module, and or in a
+implementation.
 
-Self Explain showing:
+The roadmap is allow in an unique smart windows in every single view show:
 
  * Action Help.
  * Fields descriptions and help.
@@ -46,8 +47,12 @@ Self Explain showing:
  * Link to actions to a content, in this way we can call the "Help Extended"
  * Auto compile with sphinx if .rst files if they are presented. 
 
+You can find a mindmap with the explanation of the main idea here_.
+
 TODO: With this module we will have a documentation index to manage all
 relations in with the windows and actions.
+
+.. _here: web_doc/static/src/doc/web_doc.xmind
 """,
     'author': 'Vauxoo',
     'version': '0.1',
