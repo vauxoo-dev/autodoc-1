@@ -14,13 +14,6 @@ openerp.web_doc = function (instance) {
             this._super(parent);
         },
         
-        isEmpty: function (obj) {
-            if (typeof obj == 'undefined' || obj === null || obj === '') return true;
-            if (typeof obj == 'number' && isNaN(obj)) return true;
-            if (obj instanceof Date && isNaN(Number(obj))) return true;
-            return false;
-        },
-
         start: function () {
             this.$('a.oe_doc_doc_show').on('click', this.on_see_doc );
             this.$('.oe_doc_doc_hide').on('click', this.on_hide_doc );
@@ -37,11 +30,14 @@ openerp.web_doc = function (instance) {
         on_edit_help: function() {
             var self = this;                                                            
                 self.rpc("/web/action/load", { action_id: "vauxoo_cms.cms_action_tree" }).done(function(result) {
-                    self.getParent().do_action(result, {
+                    result.view_type = 'form';
+                    self.getParent().do_action( result, {
                         additional_context: {
                             // SEARCH DEFAULT IS NOT WORKING,
                             // TODO: 'search_default_name': ['Category'],
                             'search_default_id': result.doc_id,
+                            'active_id': result.doc_id,
+                            'view_type': 'form',
                         },
                     });
                 $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
@@ -57,14 +53,15 @@ openerp.web_doc = function (instance) {
                          action_id: "web_doc.document_action_form" 
                          }).done(function(result) {
                     self.getParent().do_action(result, {
-                        action_menu_id: 143,
                         additional_context: {
-                            'default_name': result.name,
+                            'default_name': self.av.action.name,
+                            'default_content': self.av.action.help,
+                            'action_doc_enviroment': self.av.action.id,
                         },
                     });                  
                 $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
                     var v = new instance.web.View;
-                    v.reload();;
+                    v.reload();
                 });
                 });                                                                     
         },  
