@@ -28,7 +28,7 @@ openerp.web_doc = function (instance) {
             this.$('a.oe_create_help').on('click', this.on_create_help );
             this.$el.find('a.oe_link-process').on('click' , function(ev) { 
                 view_info.initialize_process_view(ev);
-                    $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
+                $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
                 });
             });
             this._super();
@@ -41,8 +41,13 @@ openerp.web_doc = function (instance) {
                         additional_context: {
                             // SEARCH DEFAULT IS NOT WORKING,
                             // TODO: 'search_default_name': ['Category'],
+                            'search_default_id': result.doc_id,
                         },
-                    });                  
+                    });
+                $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
+                    var v = new instance.web.View;
+                    v.reload();
+                });
                 });                                                                     
         },  
 
@@ -57,9 +62,12 @@ openerp.web_doc = function (instance) {
                             'default_name': result.name,
                         },
                     });                  
+                $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
+                    var v = new instance.web.View;
+                    v.reload();;
+                });
                 });                                                                     
         },  
-
 
         on_see_doc: function() {
             this.rpc("/doc/generic/doc_info", {}).done(function(res) {
@@ -86,14 +94,7 @@ openerp.web_doc = function (instance) {
     });
 
     instance.web.ViewManager.include({
-        /**
-         * Opens a given menu by id, as if a user had browsed to that menu by hand
-         * except does not trigger any event on the way
-         * The only difference is that we change the parameters to be sure the button
-         * On menu has the correct context, to open the process.
-         *
-         * @param {Number} id database id of the terminal menu to select
-         */
+
         start: function () {
             this._super.apply(this, arguments);
             var self = this;

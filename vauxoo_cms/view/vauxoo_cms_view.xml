@@ -92,6 +92,7 @@
                             <field name="sequence"/>
                             <field name="name"/>
                             <field name="text_id"/>
+                            <field name="id"/>
                             <field name="publishing"/>
                             <field name="menu_id"/>
                             <field name="user_id"/>
