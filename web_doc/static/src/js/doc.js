@@ -6,7 +6,6 @@ openerp.web_doc = function (instance) {
         template:'web_doc.DocButton',
     });
 
-
     instance.web.DocButton.include({
         
         init: function (parent) {
@@ -21,30 +20,6 @@ openerp.web_doc = function (instance) {
             if (obj instanceof Date && isNaN(Number(obj))) return true;
             return false;
         },
-        
-        inspect: function (obj) {
-          var msg = '';
-
-          for (var property in obj)
-          {
-            if (typeof obj[property] == 'function')
-            {
-              var inicio = obj[property].toString().indexOf('function');
-              var fin = obj[property].toString().indexOf(')')+1;
-              var propertyValue=obj[property].toString().substring(inicio,fin);
-              msg +=(typeof obj[property])+' '+property+' : '+propertyValue+' ;\n';
-            }
-            else if (typeof obj[property] == 'unknown')
-            {
-              msg += 'unknown '+property+' : unknown ;\n';
-            }
-            else
-            {
-              msg +=(typeof obj[property])+' '+property+' : '+obj[property]+' ;\n';
-            }
-          }
-          return msg;
-        },
 
         start: function () {
             this.$('a.oe_doc_doc_show').on('click', this.on_see_doc );
@@ -57,32 +32,6 @@ openerp.web_doc = function (instance) {
                 });
             });
             this._super();
-        },
-        
-        cut_doc: function(event){
-            var slideHeight = 75; // px
-            var defHeight = event[0];
-            if(defHeight >= slideHeight){
-                $('#wrap').css('height' , slideHeight + 'px');
-                $('#read-more').append('<a href="#">Click to Read More</a>');
-                $('#read-more a').click(function(){
-                    var curHeight = $('#wrap').height();
-                    if(curHeight == slideHeight){
-                        $('#wrap').animate({
-                          height: defHeight
-                        }, "normal");
-                        $('#read-more a').html('Close');
-                        $('#gradient').fadeOut();
-                    }else{
-                        $('#wrap').animate({
-                          height: slideHeight
-                        }, "normal");
-                        $('#read-more a').html('Click to Read More');
-                        $('#gradient').fadeIn();
-                    }
-                    return false;
-                });
-            }
         },
 
         on_edit_help: function() {
