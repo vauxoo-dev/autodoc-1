@@ -31,19 +31,18 @@ openerp.web_doc = function (instance) {
             var self = this;                                                            
                 self.rpc("/web/action/load", { action_id: "vauxoo_cms.cms_action_tree" }).done(function(result) {
                     result.view_type = 'form';
+                    console.log(result);
                     self.getParent().do_action( result, {
                         additional_context: {
-                            // SEARCH DEFAULT IS NOT WORKING,
-                            // TODO: 'search_default_name': ['Category'],
                             'search_default_id': result.doc_id,
                             'active_id': result.doc_id,
                             'view_type': 'form',
                         },
                     });
-                $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
                     var v = new instance.web.View;
                     v.reload();
-                });
+                    $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
+                    });
                 });                                                                     
         },  
 
@@ -59,10 +58,10 @@ openerp.web_doc = function (instance) {
                             'action_doc_enviroment': self.av.action.id,
                         },
                     });                  
-                $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
                     var v = new instance.web.View;
                     v.reload();
-                });
+                    $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
+                    });
                 });                                                                     
         },  
 
