@@ -43,7 +43,7 @@ openerp.web_doc = function (instance) {
                     v.reload();
                     $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
                     });
-                });                                                                     
+                });                                                             
         },  
 
         on_create_help: function() {
@@ -62,7 +62,7 @@ openerp.web_doc = function (instance) {
                     v.reload();
                     $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
                     });
-                });                                                                     
+                });                                                                 
         },  
 
         on_see_doc: function() {
