@@ -45,6 +45,9 @@
                                         <a  href="#" class="oe_create_help">
                                                 <span class="oe_ic">-</span>Create Help
                                         </a>
+                                       <a  href="#" class="oe_set_help">
+                                           <span class="oe_ic">C</span>Set an Extisting Help
+                                       </a>
                                       </div>
                                    </div>
                                 </t>
