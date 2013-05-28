@@ -12,6 +12,10 @@
     cursor: pointer;
 }
 
+.openerp a.oe_red {
+    color: rgb(199,13,0);
+}
+
 .openerp  a.oe_button_doc{
 	display: block; 
 	padding: 7px 5px 5px 5px; 

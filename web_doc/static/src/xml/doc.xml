@@ -1,38 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
-<t t-name="WebClient">
-    <div class="openerp openerp_webclient_container">
-    <table class="oe_webclient">
-        <tr>
-            <td colspan="2" class="oe_topbar">
-                <div class="oe_menu_placeholder"/>
-                <div class="oe_user_menu_placeholder"/>
-                <div class="oe_systray"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="oe_leftbar" valign="top">
-                <t t-set="debug" t-value="__debug__ ? '&amp;debug' : ''"/>
-                <a class="oe_logo" t-attf-href="/?ts=#{Date.now()}#{debug}">
-                    <span class="oe_logo_edit">Edit Company data</span>
-                    <img t-att-src='widget.session.url("/web/binary/company_logo")'/>
-                </a>
-                <div class="oe_secondary_menus_container"/>
-                <div class="oe_footer">
-                    Powered by <a href="http://www.openerp.com" target="_blank"><span>OpenERP</span></a>
-                </div>
-            </td>
-            <td class="oe_application">
-            </td>
-            <td class="oe_help_demo">
-            </td>
-        </tr>
-    </table>
-    </div>
-</t>
   <t t-name="web_doc.DocButton">
     <div class="oe_topbar_doc_doc">
-      <a title='See Embeded doc for the actual Elements' class="oe_doc_doc_show">b</a>
+      <a t-if="widget.av.action.doc_body" title='See Embeded doc for the actual Elements' class="oe_doc_doc_show oe">b</a>
+      <a t-if="!(widget.av.action.doc_body)" title='See Embeded doc for the actual Elements' class="oe_doc_doc_show oe_red">b</a>
       <div class="oe_doc_float_help_fixed">
         <div class="oe_doc_float_help  oe_dropdown_menu">
           <div class="oe_doc_help">

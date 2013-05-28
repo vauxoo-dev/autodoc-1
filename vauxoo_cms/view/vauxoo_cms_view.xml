@@ -57,7 +57,8 @@
                         </div>
                             <field name="content" 
                                    placeholder="e.g. Once upon a time..." 
-                                   class="oe_edit_only"/>
+                                   class="oe_edit_only"
+                                   widget="html"/>
                         <div class="oe_edit_only">
                             <label for="sequence"/>                   
                             <field name="sequence"/>
