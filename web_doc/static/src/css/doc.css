@@ -36,6 +36,7 @@
 
 .openerp span.oe_ic{
 	font: bold 40px/20px "entypoRegular"; 
+    color: white;
 }
 
 .openerp .oe_doc_float_help {
@@ -83,6 +84,10 @@
 	-webkit-box-shadow: inset 0px 0px 6px #fff;
 	border: 1px solid white;
 	border-radius: 4px;
+}
+
+.openerp div.oe_help a{
+    color:white;
 }
 
 .openerp div.oe_button_float_left {

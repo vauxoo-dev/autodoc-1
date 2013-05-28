@@ -10,7 +10,6 @@ openerp.web_doc = function (instance) {
         
         init: function (parent) {
             this.av = parent;
-            view_info = this.av;
             this._super(parent);
         },
         
@@ -29,14 +28,13 @@ openerp.web_doc = function (instance) {
 
         on_edit_help: function() {
             var self = this;                                                            
-                self.rpc("/web/action/load", { action_id: "vauxoo_cms.cms_action_tree" }).done(function(result) {
-                    result.view_type = 'form';
-                    console.log(result);
+                self.rpc("/web/action/load", 
+                    { action_id: "vauxoo_cms.cms_action_tree" })
+                    .done(function(result) {
                     self.getParent().do_action( result, {
                         additional_context: {
                             'search_default_id': result.doc_id,
                             'active_id': result.doc_id,
-                            'view_type': 'form',
                         },
                     });
                     var v = new instance.web.View;
@@ -83,7 +81,6 @@ openerp.web_doc = function (instance) {
         },
 
         destroy: function () {            
-            var self=this;
             this._super();
         }
 
@@ -96,9 +93,11 @@ openerp.web_doc = function (instance) {
             var self = this;
             if (! this.isEmpty(this.action)) {
                 var doc_button = new instance.web.DocButton(self);
-                doc_button.appendTo(instance.webclient.$el.find('.oe_systray'));
+                if ($('.oe_topbar_doc_doc').length == 0){
+                    doc_button.appendTo(instance.webclient.$el.find('.oe_systray'));
+                };
                 instance.doc_button = doc_button;
-            }
+            };
         },
         
         isEmpty: function (obj) {

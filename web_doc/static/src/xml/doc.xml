@@ -56,7 +56,7 @@
                                    <hr></hr>
                                      <div class="oe_button_float_left">
                                        <a  href="#" class="oe_edit_help">
-                                          <span class="oe_ic">-</span>Edit Help
+                                          <span class="oe_ic">*</span>Edit Help
                                        </a>
                                      </div>
                                 </t>
@@ -69,7 +69,7 @@
                                    <div class="oe_long_content">
                                       <div class="oe_button_float_left">
                                         <a  href="#" class="oe_create_help">
-                                                <span class="oe_ic">*</span>Create Help
+                                                <span class="oe_ic">-</span>Create Help
                                         </a>
                                       </div>
                                    </div>
