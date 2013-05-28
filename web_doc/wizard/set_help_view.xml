@@ -12,6 +12,7 @@
                            Click Close if you open this by mistake or you are agreed with what is linked already.
                         </p>
                     </div>
+                    <label for="doc_id"/>
                     <field name="doc_id"/>
                 <footer>
                     <button name="set_help" string="Save" type="object" class="oe_highlight"/>

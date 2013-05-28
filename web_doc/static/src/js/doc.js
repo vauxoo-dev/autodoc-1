@@ -83,16 +83,11 @@ openerp.web_doc = function (instance) {
         },  
 
         on_see_doc: function() {
-            this.rpc("/doc/generic/doc_info", {}).done(function(res) {
-                $(".openerp .oe_doc_float_help").fadeIn(400);
-            });
+            $(".openerp .oe_doc_float_help").fadeIn(400);
         },
 
         on_hide_doc: function() {
-            this.rpc("/doc/generic/doc_info", {}).done(function(res) {
-                $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
-                });
-            });
+            $(".openerp .oe_doc_float_help").fadeOut( 200);
         },
         
         renderElement: function() {
