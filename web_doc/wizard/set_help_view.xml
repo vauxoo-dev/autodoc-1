@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="set_help_form">
+            <field name="name">set.help.form</field>
+            <field name="model">set.help</field>
+            <field name="arch" type="xml">
+                <form string="Set the help to Action" version="7.0">
+                    <field name="doc_id"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="set_help_action" model="ir.actions.act_window">
+            <field name="name">Set Help to an Action</field>
+            <field name="res_model">set.help</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="view_id" ref="set_help_form"/>
+            <field name="help">Set the help to an action Windows</field> 
+        </record>
+    </data>
+</openerp>

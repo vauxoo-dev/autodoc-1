@@ -64,7 +64,8 @@ relations in with the windows and actions.
     ],
     "data": [
         "view/web_doc_view.xml",
-        "view/ir_actions_view.xml"
+        "view/ir_actions_view.xml",
+        "wizard/set_help_view.xml",
     ],
     "qweb": [
         "static/src/xml/doc.xml",
