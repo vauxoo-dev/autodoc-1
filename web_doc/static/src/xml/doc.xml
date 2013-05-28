@@ -82,4 +82,11 @@
       </div>
     </div>
   </t>
+    <t t-extend="ViewManagerAction">
+        <t t-jquery="h2.oe_view_title" t-operation="after">                            
+            <t t-if="!(widget.session.debug) &amp;&amp; widget.flags.display_title !== false"> 
+                <a class="oe_process" title="Process View" href="javascript: void(0)"></a>
+            </t>                                                                       
+        </t>                                                                           
+    </t> 
 </template>
