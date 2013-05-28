@@ -17,7 +17,7 @@
                 <footer>
                     <button name="set_help" string="Save" type="object" class="oe_highlight"/>
                         or
-                    <button name="close" string="Close" type="special" class="oe_link"/>
+                    <button string="Close" special="cancel" class="oe_link"/>
                 </footer>
                 </form>
             </field>
