@@ -29,6 +29,9 @@
                                        <a  href="#" class="oe_edit_help">
                                           <span class="oe_ic">*</span>Edit Help
                                        </a>
+                                       <a  href="#" class="oe_set_help">
+                                           <span class="oe_ic">C<span>Set an Extisting Help
+                                       </a>
                                      </div>
                                 </t>
                                 <t t-if="!(widget.av.action.doc_body)">

@@ -17,6 +17,7 @@ openerp.web_doc = function (instance) {
             this.$('a.oe_doc_doc_show').on('click', this.on_see_doc );
             this.$('.oe_doc_doc_hide').on('click', this.on_hide_doc );
             this.$('a.oe_edit_help').on('click', this.on_edit_help );
+            this.$('a.oe_set_help').on('click', this.on_set_help );
             this.$('a.oe_create_help').on('click', this.on_create_help );
             this.$el.find('a.oe_link-process').on('click' , function(ev) { 
                 view_info.initialize_process_view(ev);
@@ -25,6 +26,23 @@ openerp.web_doc = function (instance) {
             });
             this._super();
         },
+
+        on_set_help: function() {
+            var self = this;                                                            
+                self.rpc("/web/action/load", 
+                    { action_id: "web_doc.set_help_action" })
+                    .done(function(result) {
+                    self.getParent().do_action( result, {
+                        additional_context: {
+                            'search_default_id': result.doc_id,
+                            'active_id': result.doc_id,
+                            'action_doc_enviroment': self.av.action.id,
+                        },
+                    });
+                    $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
+                    });
+                });                                                             
+        },  
 
         on_edit_help: function() {
             var self = this;                                                            
@@ -35,6 +53,7 @@ openerp.web_doc = function (instance) {
                         additional_context: {
                             'search_default_id': result.doc_id,
                             'active_id': result.doc_id,
+                            'action_doc_enviroment': self.av.action.id
                         },
                     });
                     var v = new instance.web.View;
