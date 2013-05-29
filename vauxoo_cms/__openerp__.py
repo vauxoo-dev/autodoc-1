@@ -32,12 +32,13 @@
 {
     "name": "Vauxoo ECM",
     "version": "0.2",
-    "depends": ["base",
+    "depends": [
+                "base",
                 "document_page",
                 "portal_anonymous",
                 "mail",
                 "portal",
-                "web_cms_template", ],
+               ],
     "author": "Vauxoo",
     "licence": "AGPL v3",
     "website": "http://www.vauxoo.com",
