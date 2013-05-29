@@ -1,7 +1,7 @@
 openerp.web_doc = function (instance) {
     var QWeb = instance.web.qweb;
           _t = instance.web._t;
-          view_info = instance.web.ViewManager;
+          view_info = new instance.web.ViewManager;
     instance.web.DocButton = instance.web.Widget.extend({
         template:'web_doc.DocButton',
     });
@@ -19,11 +19,6 @@ openerp.web_doc = function (instance) {
             this.$('a.oe_edit_help').on('click', this.on_edit_help );
             this.$('a.oe_set_help').on('click', this.on_set_help );
             this.$('a.oe_create_help').on('click', this.on_create_help );
-            this.$el.find('a.oe_link-process').on('click' , function(ev) { 
-                view_info.initialize_process_view(ev);
-                $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
-                });
-            });
             this._super();
         },
 
@@ -97,13 +92,11 @@ openerp.web_doc = function (instance) {
         destroy: function () {            
             this._super();
         }
-
     });
 
     instance.web.ViewManager.include({
 
         start: function () {
-            this._super.apply(this, arguments);
             var self = this;
             if (! this.isEmpty(this.action)) {
                 var doc_button = new instance.web.DocButton(self);
@@ -112,8 +105,15 @@ openerp.web_doc = function (instance) {
                 };
                 instance.doc_button = doc_button;
             };
+
+            doc_button.$el.find('a.oe_link-process').on('click' , function(ev) { 
+                self.initialize_process_view(ev);
+                $(".openerp .oe_doc_float_help").fadeOut(200);
+            });
+
+            return self._super();
         },
-        
+
         isEmpty: function (obj) {
             if (typeof obj == 'undefined' || obj === null || obj === '') return true;
             if (typeof obj == 'number' && isNaN(obj)) return true;
@@ -144,19 +144,5 @@ openerp.web_doc = function (instance) {
           }
           return msg;
         },
-        
-        process_edit_view: function() {
-            var self = this;
-            var pop = new instance.web.form.FormOpenPopup(self);
-            pop.show_element(
-                self.process_dataset.model,
-                self.process_id,
-                self.context || self.dataset.context,
-                {
-                    title: _t('Process')
-                });
-            var form_controller = pop.view_form;
-            pop.on('write_completed', self, self.initialize_process_view);
-        },
     });
- };
+};
