@@ -1,8 +1,8 @@
 :orphan:
 
-========================
-herrera Documentation.
-========================
+=======================
+Auto Doc Documentation.
+=======================
 
 Base Documentation
 ''''''''''''''''''
@@ -13,32 +13,21 @@ Base Documentation
     intro.rst
 
 
-Module herrera
-''''''''''''''''
-
-.. toctree::
-    :maxdepth: 2
-
-    index_herrera.rst
-
-Module web_doc_herrera
-''''''''''''''''''''''''
-
-.. toctree::
-    :maxdepth: 2
-
-    web_doc_herrera_index.rst
-
-herrera API.
+Module web_doc
 ''''''''''''''
 
-Coding Guidelines
-+++++++++++++++++
+.. toctree::
+    :maxdepth: 2
+
+    index_web_doc.rst
+
+Module vauxoo_cms
+'''''''''''''''''
 
 .. toctree::
     :maxdepth: 2
 
-    contribute.rst
+    index_vauxoo_cms.rst
 
 ..    
     .. toctree::

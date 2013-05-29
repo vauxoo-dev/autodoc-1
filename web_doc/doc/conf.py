@@ -58,8 +58,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'OeMedical Technical and Users Documentation'
-copyright = u'2012, OeMedical Team'
+project = u'Auto doc set of modules'
+copyright = u'2012, Vauxoo'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -268,5 +268,4 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('http://docs.python.org/', None),
-    'openerpweb': ('http://doc.openerp.com/trunk/developers/web', None),
 }
