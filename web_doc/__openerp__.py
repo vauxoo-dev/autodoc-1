@@ -47,6 +47,12 @@ The roadmap is allow in an unique smart windows in every single view show:
  * Link to actions to a content, in this way we can call the "Help Extended"
  * Auto compile with sphinx if .rst files if they are presented. 
 
+The following image show where icon will appear for access to the documentation:
+
+.. image:: /web_doc/static/src/img/documentation_access_button.png
+   :width: 600 px
+   :align: center
+
 You can find a mindmap with the explanation of the main idea here_.
 
 TODO: With this module we will have a documentation index to manage all
