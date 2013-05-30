@@ -31,55 +31,36 @@
                            statusbar_visible="draft,review,published"
                            statusbar_colors='{"draft":"blue","review":"blue","review":"red"}'/>
                         </header>      
-                        <field name="type" invisible="1"/>
-                        <h1><field name="name" placeholder="Name Help Say Something"/></h1>
-                        <group class="oe_edit_only">
-                            <notebook colspan="4">
-                                <page string="Selection Info">
-                                    <group>
-                                        <field name="parent_id" 
+                        <sheet>
+                            <field name="type" invisible="1"/>
+                            <h1><field name="name" placeholder="Name Help Say Something"/></h1>
+                            <group class="oe_edit_only">
+                                <field name="content" 
+                                       widget="html"
+                                       class="oe_edit_only"/>
+                            </group>
+                            <div class="oe_comment">
+                                <h2>Preview</h2>
+                            </div>
+                            <group class="oe_view_only">
+                                <field name="display_content2" 
+                                       widget="html"
+                                       class="oe_view_only" 
+                                       options='{"safe": True}'/>
+                            </group>
+                            <field name="parent_id" 
                                         on_change="onchange_parent_id(parent_id,content)" 
                                         string="Category"/>
-                                    </group>
+                            <notebook colspan="4">
+                                <page string="Selection Info">
                                 </page>
                                 <page string="Technical Info">
-                                    <group>
-                                        <field name="write_uid" groups="base.group_no_one"/>
-                                        <field name="write_date" groups="base.group_no_one"/>
-                                        <field name="cms_menu_ids"/>
-                                    </group>
+                                    <field name="write_uid" groups="base.group_no_one"/>
+                                    <field name="write_date" groups="base.group_no_one"/>
+                                    <field name="cms_menu_ids"/>
                                 </page>
                             </notebook>
-                        </group>
-                        <div class="oe_edit_only" attrs="{'invisible':[('type','=','content')]}">
-                            <label for="content" string="Template"/>
-                            that will be used as a content template for all new page of this category.
-                        </div>
-                            <field name="content" 
-                                   placeholder="e.g. Once upon a time..." 
-                                   class="oe_edit_only"
-                                   widget="html"/>
-                        <div class="oe_edit_only">
-                            <label for="sequence"/>                   
-                            <field name="sequence"/>
-                            <label for="type_id"/>
-                            <field name="type_id"/>
-                            <label for="text_id"/>
-                            <field name="text_id" class="oe_edit_only"/>
-                            <label for="publishing"/>
-                            <field name="publishing" class="oe_edit_only"/>
-                            <label for="user_id"/>
-                            <field name="user_id" class="oe_edit_only"/>
-                            <label for="url"/>
-                            <field name="url"/>
-                            <label for="allow_comments"/>
-                            <field name="allow_comments" class="oe_edit_only"/>
-                        </div>
-                        <div class="oe_document_page">
-                            <field name="display_content2" 
-                                   widget="html" class="oe_view_only oe_red" 
-                                   options='{"safe": True}'/>
-                        </div>
+                       </sheet>
                     </form>
                 </field>
             </record>

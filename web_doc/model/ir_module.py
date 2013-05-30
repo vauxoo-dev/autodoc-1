@@ -73,10 +73,7 @@ class ir_module(osv.Model):
             pathtodoc = pathtodoclist and pathtodoclist[0] or ''
             dirdoc = os.path.join(pathtodoc, 'doc')
             if os.path.isdir(dirdoc):
-                print "dirdoc     ....    %s" % dirdoc
                 a = subprocess.call(['cd', dirdoc, '&&', 'make', 'html'])
-                print "AND IT RETURN ....       ", a
-#                a = subprocess.call(['cd', dirdoc])
         return True
 
     def _has_doc(self, cr, uid, ids, field_name, arg, context=None):
@@ -95,7 +92,7 @@ class ir_module(osv.Model):
                 dirdoc = os.path.join(pathtodoc, 'doc')
                 if os.path.isdir(dirdoc):
                     lnk = '/'.join(['', name,
-                                    'static/src/_build/html/index.html'])
+                                    'static/doc/html/index.html'])
                     result[i] = {'has_doc': True,
                                  'link_doc': lnk}
                 else:
