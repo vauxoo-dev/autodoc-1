@@ -84,9 +84,10 @@ http://launchpad.net/vauxoo-cms
               "view/vauxoo_cms_view.xml",
               "view/vauxoo_menu_cms_view.xml",
               "process/new_content_process.xml",
+              "data/doc_data.xml",
     ],
     "demo": [
-    "demo/demo_data.xml"
+    "demo/demo_data.xml",
     ],
     "test": [
     ],
@@ -104,6 +105,6 @@ http://launchpad.net/vauxoo-cms
     "installable": True,
     "auto_install": False,
     "images": [
-                "images/cms-icon.png"
+    "images/cms-icon.png"
     ],
 }
