@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="document_page_autodochelp0" model="document.page">
+            <field name="create_uid" ref="base.user_root"/>
+            <field eval="0" name="allow_comments"/>
+            <field name="write_uid" ref="base.user_root"/>
+            <field name="content">&lt;ol&gt;
+            &lt;li&gt;Knowledge is the content generation module.
+                &lt;ul&gt;
+                    &lt;li&gt;The submenu &quot;pages&quot; allows you to create different pages with content.&lt;/li&gt;
+                    &lt;li&gt;The submenu &quot;Categories&quot; allows you to categorize content pages.&lt;/li&gt;
+                    &lt;li&gt;The submenu &quot;Page history&quot; allows you to view the history of changes made to the content pages.&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;p&gt;
+            &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/zsgrnGKFbfQ&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+            &lt;/p&gt;&lt;li&gt;The icon in the top right of the window enables you to access content.
+                &lt;ul&gt;
+                    &lt;li&gt;The icon will show red when does not have content.&lt;/li&gt;
+                    &lt;li&gt;The icon will change to white once added content.&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;p&gt;
+            &lt;iframe src=&quot;http://www.youtube.com/embed/K0EEW-RL4r8&quot; allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;315&quot; width=&quot;560&quot;&gt;&lt;/iframe&gt;
+            &lt;/p&gt;&lt;/ol&gt; 
+            </field>
+            <field model="document.page" name="parent_id" search="[('name', '=', u'Manuales')]"/>
+            <field name="state">draft</field>
+            <field name="write_date">2013-05-30 02:02:08</field>
+            <field name="create_date">2013-05-29 23:15:48</field>
+            <field name="type">content</field>
+            <field eval="[(6,0,[])]" name="cms_menu_ids"/>
+            <field name="name">Autodoc Help</field>
+        </record>
+
+    </data>
+</openerp>
