@@ -46,7 +46,8 @@
                                 <field name="display_content2" 
                                        widget="html"
                                        class="oe_view_only" 
-                                       options='{"safe": True}'/>
+                                       options='{"safe": True}'
+                                       nolabel="1"/>
                             </group>
                             <field name="parent_id" 
                                         on_change="onchange_parent_id(parent_id,content)" 
