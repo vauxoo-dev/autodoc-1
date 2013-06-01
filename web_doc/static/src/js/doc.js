@@ -103,12 +103,12 @@ openerp.web_doc = function (instance) {
                 };
                 instance.doc_button = doc_button;
             };
-
-            doc_button.$el.find('a.oe_link-process').on('click' , function(ev) { 
-                self.initialize_process_view(ev);
-                $(".openerp .oe_doc_float_help").fadeOut(200);
-            });
-
+            if (! this.isEmpty(doc_button)) {
+                doc_button.$el.find('a.oe_link-process').on('click' , function(ev) { 
+                    self.initialize_process_view(ev);
+                    $(".openerp .oe_doc_float_help").fadeOut(200);
+                });
+            };
             return self._super();
         },
 
