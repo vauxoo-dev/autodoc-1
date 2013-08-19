@@ -1,18 +1,9 @@
 openerp.web_doc = function (instance) {
-    var QWeb = instance.web.qweb;
-          _t = instance.web._t;
-          view_info = new instance.web.ViewManager;
+    var QWeb = instance.web.qweb,
+          _t = instance.web._t
+
     instance.web.DocButton = instance.web.Widget.extend({
         template:'web_doc.DocButton',
-    });
-
-    instance.web.DocButton.include({
-        
-        init: function (parent) {
-            this.av = parent;
-            this._super(parent);
-        },
-        
         start: function () {
             this.$('a.oe_doc_doc_show').on('click', this.on_see_doc );
             this.$('.oe_doc_doc_hide').on('click', this.on_hide_doc );
@@ -21,7 +12,6 @@ openerp.web_doc = function (instance) {
             this.$('a.oe_create_help').on('click', this.on_create_help );
             this._super();
         },
-
         on_set_help: function() {
             var self = this;                                                            
                 self.rpc("/web/action/load", 
@@ -38,7 +28,6 @@ openerp.web_doc = function (instance) {
                     });
                 });                                                             
         },  
-
         on_edit_help: function() {
             var self = this;                                                            
                 self.rpc("/web/action/load", 
@@ -55,7 +44,6 @@ openerp.web_doc = function (instance) {
                     });
                 });                                                             
         },  
-
         on_create_help: function() {
             var self = this;                                                            
                 self.rpc("/web/action/load", { 
@@ -74,22 +62,12 @@ openerp.web_doc = function (instance) {
                     });
                 });                                                                 
         },  
-
         on_see_doc: function() {
             $(".openerp .oe_doc_float_help").fadeIn(400);
         },
-
         on_hide_doc: function() {
             $(".openerp .oe_doc_float_help").fadeOut( 200);
         },
-        
-        renderElement: function() {
-            this._super();
-        },
-
-        destroy: function () {            
-            this._super();
-        }
     });
 
     instance.web.ViewManager.include({
