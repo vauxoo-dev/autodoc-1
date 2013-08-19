@@ -4,6 +4,10 @@ openerp.web_doc = function (instance) {
 
     instance.web.DocButton = instance.web.Widget.extend({
         template:'web_doc.DocButton',
+        init: function (action){
+            this.av = action;
+            this._super(action);
+        }, 
         start: function () {
             this.$('a.oe_doc_doc_show').on('click', this.on_see_doc );
             this.$('.oe_doc_doc_hide').on('click', this.on_hide_doc );
@@ -13,7 +17,7 @@ openerp.web_doc = function (instance) {
             this._super();
         },
         on_set_help: function() {
-            var self = this;                                                            
+            var self = this;
                 self.rpc("/web/action/load", 
                     { action_id: "web_doc.set_help_action" })
                     .done(function(result) {
@@ -42,8 +46,8 @@ openerp.web_doc = function (instance) {
                     });
                     $(".openerp .oe_doc_float_help").fadeOut( 200, function(){
                     });
-                });                                                             
-        },  
+                });
+        },
         on_create_help: function() {
             var self = this;                                                            
                 self.rpc("/web/action/load", { 
@@ -70,19 +74,20 @@ openerp.web_doc = function (instance) {
         },
     });
 
-    instance.web.ViewManager.include({
-
+    instance.web.ViewManagerAction.include({
+        init: function(parent, action){
+            this._super(parent, action);
+        },
         start: function () {
-            var self = this;
-            if (! this.isEmpty(this.action)) {
-                var doc_button = new instance.web.DocButton(self);
+            var self = this
+            if (! this.isEmpty(self.action)) {
                 if ($('.oe_topbar_doc_doc').length == 0){
-                    doc_button.appendTo(instance.webclient.$el.find('.oe_systray'));
-                };
-                instance.doc_button = doc_button;
+                    this.doc_button = new instance.web.DocButton(self);
+                    this.doc_button.appendTo(instance.webclient.$el.find('.oe_systray'));
+                } 
             };
-            if (! this.isEmpty(doc_button)) {
-                doc_button.$el.find('a.oe_link-process').on('click' , function(ev) { 
+            if (! this.isEmpty(this.doc_button)) {
+                this.doc_button.$el.find('a.oe_link-process').on('click' , function(ev) { 
                     self.initialize_process_view(ev);
                     $(".openerp .oe_doc_float_help").fadeOut(200);
                 });
