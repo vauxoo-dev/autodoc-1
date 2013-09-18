@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
-from osv import osv
-from osv import fields
-from tools.translate import _
-from tools.convert import xml_import
+from openerp.osv import osv
+from openerp.osv import fields
+from openerp.tools.translate import _
+from openerp.tools.convert import xml_import
 
 
 class ir_ui_menu_cms(osv.osv):
