@@ -32,12 +32,26 @@ except ImportError:
     from urllib.parse import urlsplit
 
 class Cleaner(Cleaner):
-
+    '''
+    Inherit Cleaner class to overwrite allow_embedded_url  method and add a new parameter with the
+    schemes allowed for embedded url
+    '''
     def __init__(self, **kw):
         super(Cleaner,self).__init__(**kw)
 
         
     def allow_embedded_url(self, el, url, allowed_scheme=None): 
+        '''
+        Verifies that all urls follow the minimum requirements, like scheme(http, https) or that
+        hosts are in allow list 
+        @param el: HtmlElement object with the url embedded
+        @param url:  string with the url to inspect
+        @allowed_scheme: iterable(list or tuple) with the allow schemes, if it's None the scheme
+        allowed are http and https
+
+        return True if the url follow the minimal requirements otherwise return False
+        '''
+        print help(el)
         allowed_scheme = allowed_scheme or ('http', 'https')
         if (self.whitelist_tags is not None 
             and el.tag not in self.whitelist_tags): 
@@ -49,16 +63,6 @@ class Cleaner(Cleaner):
         if netloc in self.host_whitelist: 
             return True 
         return False 
-
-
-    def clean_html(self, html): 
-        result_type = type(html) 
-        if isinstance(html, basestring): 
-            doc = fromstring(html) 
-        else: 
-            doc = copy.deepcopy(html) 
-        self(doc) 
-        return _transform_result(result_type, doc)
 
 lxml.html.clean.Cleaner = Cleaner
 
