@@ -85,6 +85,7 @@ http://launchpad.net/vauxoo-cms
               "view/vauxoo_menu_cms_view.xml",
               "process/new_content_process.xml",
               "data/doc_data.xml",
+              "data/ir_config_data.xml",
     ],
     "demo": [
     "demo/demo_data.xml",
