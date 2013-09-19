@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="config_allow_hosts_list" model="ir.config_parameter">
+            <field name="key">host_whitelist</field>
+            <field name="value">['youtube.com', 'erp.vauxoo.com', 'drive.google.com','docs.google.com', 'evernote.com']</field>
+        </record>
+        <record id="config_allow_scheme_list" model="ir.config_parameter">
+            <field name="key">scheme_allowed</field>
+            <field name="value">('https',)</field>
+        </record>
+
+    </data>
+</openerp>

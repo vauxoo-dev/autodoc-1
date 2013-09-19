@@ -51,7 +51,6 @@ class Cleaner(Cleaner):
 
         return True if the url follow the minimal requirements otherwise return False
         '''
-        print help(el)
         allowed_scheme = allowed_scheme or ('http', 'https')
         if (self.whitelist_tags is not None 
             and el.tag not in self.whitelist_tags): 
