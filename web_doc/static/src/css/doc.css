@@ -1,19 +1,8 @@
-.openerp a.oe_doc_doc_show {
-    font-family: "entypoRegular";
-    font-size: 34px;
-    margin-top: 0px;
-    width: 32px;
-    height: 32px;
-    background: none;
-    color: white;
-    border: none;
-    box-shadow: none;
-    text-shadow: black 0px 0px 3px;
-    cursor: pointer;
-}
-
-.openerp a.oe_red {
+.openerp a span.oe_red {
     color: rgb(199,13,0);
+}
+.openerp a span.oe_white {
+    color: #fff;
 }
 
 .openerp  a.oe_button_doc{
@@ -63,7 +52,6 @@
     font-size: 34px;
     margin: 1px 1px 1px 1px;
     text-shadow: #babdb6 0px 0px 4px;
-    writing-mode: tb-rl;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);

@@ -2,8 +2,12 @@
 <template>
   <t t-name="web_doc.DocButton">
     <div class="oe_topbar_doc_doc">
-      <a t-if="widget.av.action.doc_body" title='See Embeded doc for the actual Elements' class="oe_doc_doc_show oe">b</a>
-      <a t-if="!(widget.av.action.doc_body)" title='See Embeded doc for the actual Elements' class="oe_doc_doc_show oe_red">b</a>
+        <a t-if="widget.av.action.doc_body"
+           title='See Embeded doc for the actual Elements'
+           class="oe_doc_doc_show oe oe_oe_topbar_item"><span class="oe_e oe_white">b</span></a>
+       <a t-if="!(widget.av.action.doc_body)"
+          title='See Embeded doc for the actual Elements'
+          class="oe_doc_doc_show oe_topbar_item"><span class="oe_e oe_red">b</span></a>
       <div class="oe_doc_float_help_fixed">
         <div class="oe_doc_float_help  oe_dropdown_menu">
           <div class="oe_doc_help">
