@@ -1,7 +1,7 @@
-.openerp a span.oe_red {
+.openerp .oe_systray button.oe_red {
     color: rgb(199,13,0);
 }
-.openerp a span.oe_white {
+.openerp .oe_systray button.oe_white {
     color: #fff;
 }
 

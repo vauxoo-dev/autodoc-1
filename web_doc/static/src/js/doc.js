@@ -9,7 +9,7 @@ openerp.web_doc = function (instance) {
             this._super(action);
         }, 
         start: function () {
-            this.$('a.oe_doc_doc_show').on('click', this.on_see_doc );
+            this.$('.oe_doc_doc_show').on('click', this.on_see_doc );
             this.$('.oe_doc_doc_hide').on('click', this.on_hide_doc );
             this.$('a.oe_edit_help').on('click', this.on_edit_help );
             this.$('a.oe_set_help').on('click', this.on_set_help );

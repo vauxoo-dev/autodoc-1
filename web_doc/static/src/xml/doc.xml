@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
   <t t-name="web_doc.DocButton">
-    <div class="oe_topbar_doc_doc oe_topbar_item">
- 
-    <a t-if="widget.av.action.doc_body"
+    <div class="oe_topbar_item oe_topbar_compose_full_email">
+        <button t-if="widget.av.action.doc_body"
         title='See Embeded doc for the actual Elements'
-        class="oe_doc_doc_show "><span class="oe_e oe_white">b</span></a>
-    <a t-if="!(widget.av.action.doc_body)"
+        class="oe_doc_doc_show oe_e oe_white">b</button>
+        <button t-if="!(widget.av.action.doc_body)"
         title='See Embeded doc for the actual Elements'
-        class="oe_doc_doc_show"><span class="oe_e oe_red">b</span></a>
+        class="oe_doc_doc_show oe_e oe_red">b</button>
+    <div class="oe_topbar_doc_doc">
       <div class="oe_doc_float_help_fixed">
         <div class="oe_doc_float_help  oe_dropdown_menu">
           <div class="oe_doc_help">
@@ -85,6 +85,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </t>
 </template>
