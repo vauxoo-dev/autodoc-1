@@ -8,6 +8,10 @@
         <button t-if="!(widget.av.action.doc_body)"
         title='See Embeded doc for the actual Elements'
         class="oe_doc_doc_show oe_e oe_red">b</button>
+    </div>
+    <t t-call="web_doc.HelpContent"/>
+  </t>
+  <t t-name="web_doc.HelpContent">
     <div class="oe_topbar_doc_doc">
       <div class="oe_doc_float_help_fixed">
         <div class="oe_doc_float_help  oe_dropdown_menu">
@@ -85,7 +89,6 @@
           </div>
         </div>
       </div>
-    </div>
     </div>
   </t>
 </template>
