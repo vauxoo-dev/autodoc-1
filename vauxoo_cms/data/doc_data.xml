@@ -3,9 +3,7 @@
     <data noupdate="1">
 
         <record id="document_page_autodochelp0" model="document.page">
-            <field name="create_uid" ref="base.user_root"/>
             <field eval="0" name="allow_comments"/>
-            <field name="write_uid" ref="base.user_root"/>
             <field name="content">&lt;ol&gt;
             &lt;li&gt;Knowledge is the content generation module.
                 &lt;ul&gt;
@@ -28,8 +26,6 @@
             </field>
             <field model="document.page" name="parent_id" search="[('name', '=', u'Manuales')]"/>
             <field name="state">draft</field>
-            <field name="write_date">2013-05-30 02:02:08</field>
-            <field name="create_date">2013-05-29 23:15:48</field>
             <field name="type">content</field>
             <field eval="[(6,0,[])]" name="cms_menu_ids"/>
             <field name="name">Autodoc Help</field>
