@@ -18,11 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
-    'name': 'Docs',
-    'category': 'Knowledge',
-    'description': """
+    "name": "Docs", 
+    "version": "0.1", 
+    "author": "Vauxoo", 
+    "category": "Knowledge", 
+    "description": """
 Help and Documentation management.
 ==================================
 
@@ -59,29 +60,32 @@ TODO: With this module we will have a documentation index to manage all
 relations in with the windows and actions.
 
 .. _here: web_doc/static/src/doc/web_doc.xmind
-""",
-    'author': 'Vauxoo',
-    'version': '0.1',
-    'depends': [
-                'base',
-                'web',
-                'process',
-                'vauxoo_cms',
-    ],
+""", 
+    "website": "", 
+    "license": "", 
+    "depends": [
+        "base", 
+        "web", 
+        "process", 
+        "vauxoo_cms"
+    ], 
+    "demo": [], 
     "data": [
-        "view/web_doc_view.xml",
-        "view/ir_actions_view.xml",
-        "wizard/set_help_view.xml",
-    ],
-    "qweb": [
-        "static/src/xml/doc.xml",
-    ],
+        "view/web_doc_view.xml", 
+        "view/ir_actions_view.xml", 
+        "wizard/set_help_view.xml"
+    ], 
+    "test": [], 
     "js": [
-        "static/src/js/doc.js",
-    ],
+        "static/src/js/doc.js"
+    ], 
     "css": [
-        "static/src/css/doc.css",
-    ],
-    'auto_install': False,
-    'active': False,
+        "static/src/css/doc.css"
+    ], 
+    "qweb": [
+        "static/src/xml/doc.xml"
+    ], 
+    "installable": True, 
+    "auto_install": False
 }
+#vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
