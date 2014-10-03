@@ -11,28 +11,29 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
+import sys
+import os
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
-#Necesary to import osv.osv in autodoc
+# Necesary to import osv.osv in autodoc
 SERVERPATH = "/home/nhomar/instancias/7.0/server/openerp"
-#Necesary to import openerp in autodoc
+# Necesary to import openerp in autodoc
 OPENERPPATH = "/home/nhomar/instancias/7.0/server"
-#OeMEdical Relative path.
+# OeMEdical Relative path.
 OEMEDICALPATH = '../../../'
 sys.path.append(os.path.abspath('_themes'))
 sys.path.append(os.path.abspath('..'))
 sys.path.append(SERVERPATH)
 sys.path.append(OPENERPPATH)
-#sys.path.append(os.path.abspath(OEMEDICALPATH))
+# sys.path.append(os.path.abspath(OEMEDICALPATH))
 for oemModule in os.listdir(OEMEDICALPATH):
-    sys.path.append(os.path.join(OEMEDICALPATH,oemModule))
+    sys.path.append(os.path.join(OEMEDICALPATH, oemModule))
 
-#Uncomment this line to include all models and methods documentations
-#sys.path.append(os.path.abspath('../model'))
+# Uncomment this line to include all models and methods documentations
+# sys.path.append(os.path.abspath('../model'))
 
 # -- General configuration -----------------------------------------------------
 
@@ -151,9 +152,9 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-    'index':    ['sidebarintro.html', 'sourcelink.html', 'searchbox.html'],
-    '**':       ['sidebarlogo.html', 'localtoc.html', 'relations.html',
-                 'sourcelink.html', 'searchbox.html']
+    'index': ['sidebarintro.html', 'sourcelink.html', 'searchbox.html'],
+    '**': ['sidebarlogo.html', 'localtoc.html', 'relations.html',
+           'sourcelink.html', 'searchbox.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to
@@ -193,20 +194,20 @@ htmlhelp_basename = 'oemedical-doc'
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    #'papersize': 'letterpaper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    #'pointsize': '10pt',
 
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    #'preamble': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'oemedical-doc.tex', u'OeMedical Documentation',
+    ('index', 'oemedical-doc.tex', u'OeMedical Documentation',
    u'OeMedical Team', 'manual'),
 ]
 
@@ -250,7 +251,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'OeMedicalDocumentation', u'OpenERP Server Developers Documentation',
+    ('index', 'OeMedicalDocumentation', u'OpenERP Server Developers Documentation',
    u'OeMedical Team', 'OOeMedicalDocumentatio', 'Developers documentation for the openobject-server project.',
    'Miscellaneous'),
 ]
