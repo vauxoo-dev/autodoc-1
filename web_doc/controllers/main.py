@@ -1,25 +1,5 @@
 # -*- coding: utf-8 -*-
-import ast
-import base64
-import csv
-import glob
-import itertools
-import logging
-import operator
-import datetime
-import hashlib
 import os
-import re
-import simplejson
-import time
-import urllib2
-import xmlrpclib
-import zlib
-from xml.etree import ElementTree
-from cStringIO import StringIO
-import babel.messages.pofile
-import werkzeug.utils
-import werkzeug.wrappers
 import openerp
 from openerp.addons.web import http
 openerpweb = http

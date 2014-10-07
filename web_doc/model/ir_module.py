@@ -24,9 +24,7 @@ import os
 import subprocess
 import re
 
-from openerp import addons
 from openerp.osv import fields, osv
-from openerp.tools.translate import _
 import httplib
 import urlparse
 
