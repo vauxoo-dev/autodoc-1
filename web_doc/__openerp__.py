@@ -45,7 +45,7 @@ The roadmap is allow in an unique smart windows in every single view show:
   - TODO: Add link specific in actions.
  * Manage Attachments to process itself (Not so common to understand).
  * Link to actions to a content, in this way we can call the "Help Extended"
- * Auto compile with sphinx if .rst files if they are presented. 
+ * Auto compile with sphinx if .rst files if they are presented.
 
 The following image show where icon will appear for access to the documentation:
 

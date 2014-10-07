@@ -24,6 +24,7 @@ import openerp
 from openerp.addons.web import http
 openerpweb = http
 
+
 def read_base_doc(name):
     '''
     Method that will be sure to convert path of index in absolute path.
@@ -31,7 +32,7 @@ def read_base_doc(name):
     '''
     m = openerp.addons.web_doc.__path__
     base = m and m[0] or ''
-    templates = os.path.join(base,'static','src','templates') 
+    templates = os.path.join(base, 'static', 'src', 'templates')
     if os.path.isdir(templates):
         return templates
     else:
@@ -39,6 +40,7 @@ def read_base_doc(name):
 
 
 class HerreraDoc(openerpweb.Controller):
+
     '''
     With this controller we will manage all documentation.
     The important thing here is the admin part.
@@ -48,21 +50,21 @@ class HerreraDoc(openerpweb.Controller):
     TODO: controller for Process Help.
     TODO: controller for index Help.
     '''
-    _cp_path='/doc'
+    _cp_path = '/doc'
 
     @openerpweb.httprequest
     def index(self, req, s_action=None, **kw):
-#        basepath = read_base_doc("index.html")
+        #        basepath = read_base_doc("index.html")
         basepath = "////"
         return str(basepath)
 
+
 class JsonInfoDoc(openerpweb.Controller):
 
-    _cp_path='/doc/generic'
+    _cp_path = '/doc/generic'
 
     @openerpweb.jsonrequest
     def doc_info(self, req):
         return {
             "doc": "Hello"
-        }    
-
+        }
