@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
 from openerp.osv import osv, fields
-from openerp.tools.translate import _
 
 
 class cms_text_format(osv.osv):
