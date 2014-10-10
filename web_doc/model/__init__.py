@@ -1,3 +1,3 @@
-import ir_module
-import ir_actions
-import document_page
+from . import ir_module
+from . import ir_actions
+from . import document_page
