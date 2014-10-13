@@ -19,10 +19,10 @@
 #
 ##############################################################################
 {
-    "name": "Docs", 
-    "version": "0.1", 
-    "author": "Vauxoo", 
-    "category": "Knowledge", 
+    "name": "Docs",
+    "version": "0.1",
+    "author": "Vauxoo",
+    "category": "Knowledge",
     "description": """
 Help and Documentation management.
 ==================================
@@ -46,7 +46,7 @@ The roadmap is allow in an unique smart windows in every single view show:
   - TODO: Add link specific in actions.
  * Manage Attachments to process itself (Not so common to understand).
  * Link to actions to a content, in this way we can call the "Help Extended"
- * Auto compile with sphinx if .rst files if they are presented. 
+ * Auto compile with sphinx if .rst files if they are presented.
 
 The following image show where icon will appear for access to the documentation:
 
@@ -60,33 +60,33 @@ TODO: With this module we will have a documentation index to manage all
 relations in with the windows and actions.
 
 .. _here: web_doc/static/src/doc/web_doc.xmind
-""", 
-    "website": "", 
-    "license": "", 
+
+""",
+    "website": "",
+    "license": "",
     "depends": [
-        "base", 
-        "web", 
-        "process", 
+        "base",
+        "web",
+        "process",
         "vauxoo_cms"
-    ], 
-    "demo": [], 
+    ],
+    "demo": [],
     "data": [
-        "view/web_doc_view.xml", 
-        "view/ir_actions_view.xml", 
+        "view/web_doc_view.xml",
+        "view/ir_actions_view.xml",
         "wizard/set_help_view.xml"
-    ], 
-    "test": [], 
+    ],
+    "test": [],
     "js": [
         "static/src/js/doc.js"
-    ], 
+    ],
     "css": [
         "static/src/css/doc.css"
-    ], 
+    ],
     "qweb": [
         "static/src/xml/doc.xml"
-    ], 
-    "installable": True, 
+    ],
+    "installable": True,
     "auto_install": False
 }
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

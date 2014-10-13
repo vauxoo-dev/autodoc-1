@@ -29,10 +29,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
 {
-    "name": "Vauxoo ECM", 
-    "version": "0.2", 
-    "author": "Vauxoo", 
-    "category": "CMS", 
+    "name": "Vauxoo ECM",
+    "version": "0.2",
+    "author": "Vauxoo",
+    "category": "CMS",
     "description": """
 Vauxoo ECM System.
 ==================
@@ -66,37 +66,37 @@ Go to users and set CMS / Administrator group to your user.
 See new menus installed and enjoy it!
 
 http://launchpad.net/vauxoo-cms
-""", 
-    "website": "http://www.vauxoo.com", 
-    "license": "", 
+
+""",
+    "website": "http://www.vauxoo.com",
+    "license": "",
     "depends": [
-        "base", 
-        "document_page", 
-        "portal_anonymous", 
-        "mail", 
+        "base",
+        "document_page",
+        "portal_anonymous",
+        "mail",
         "portal"
-    ], 
+    ],
     "demo": [
         "demo/demo_data.xml"
-    ], 
+    ],
     "data": [
-        "security/groups.xml", 
-        "security/ir.model.access.csv", 
-        "wizard/create_menu_wizard.xml", 
-        "view/vauxoo_cms_view.xml", 
-        "view/vauxoo_menu_cms_view.xml", 
-        "process/new_content_process.xml", 
-        "data/doc_data.xml", 
+        "security/groups.xml",
+        "security/ir.model.access.csv",
+        "wizard/create_menu_wizard.xml",
+        "view/vauxoo_cms_view.xml",
+        "view/vauxoo_menu_cms_view.xml",
+        "process/new_content_process.xml",
+        "data/doc_data.xml",
         "data/ir_config_data.xml"
-    ], 
-    "test": [], 
-    "js": [], 
+    ],
+    "test": [],
+    "js": [],
     "css": [
         "static/src/css/vauxoo_page.css"
-    ], 
-    "qweb": [], 
-    "installable": True, 
+    ],
+    "qweb": [],
+    "installable": True,
     "auto_install": False
 }
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
