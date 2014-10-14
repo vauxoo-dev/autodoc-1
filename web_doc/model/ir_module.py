@@ -71,7 +71,7 @@ class ir_module(osv.Model):
             pathtodoc = pathtodoclist and pathtodoclist[0] or ''
             dirdoc = os.path.join(pathtodoc, 'doc')
             if os.path.isdir(dirdoc):
-                a = subprocess.call(['cd', dirdoc, '&&', 'make', 'html'])
+                subprocess.call(['cd', dirdoc, '&&', 'make', 'html'])
         return True
 
     def _has_doc(self, cr, uid, ids, field_name, arg, context=None):

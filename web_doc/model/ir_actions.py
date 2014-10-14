@@ -12,7 +12,6 @@ class act_window(osv.osv):
         if context is None:
             context = {}
         res = {}
-        page_obj = self.pool.get('document.page')
         for i in ids:
             my_brw = self.browse(cr, uid, [i], context=context)
             if my_brw[0] and my_brw[0].doc:
