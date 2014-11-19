@@ -67,7 +67,7 @@ See new menus installed and enjoy it!
 
 http://launchpad.net/vauxoo-cms
 
-""",
+    """,
     "website": "http://www.vauxoo.com",
     "license": "",
     "depends": [

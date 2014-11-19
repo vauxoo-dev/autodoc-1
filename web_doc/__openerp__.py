@@ -61,7 +61,7 @@ relations in with the windows and actions.
 
 .. _here: web_doc/static/src/doc/web_doc.xmind
 
-""",
+    """,
     "website": "",
     "license": "",
     "depends": [
